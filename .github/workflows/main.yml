@@ -25,10 +25,6 @@ jobs:
       - name: 构建网站
         run: hugo --minify
 
-      # - name: 下载并配置OSS工具
-      #   run:
-      #     wget https://github.com/aliyun/ossutil/releases/download/v1.7.20/ossutil64
-      #     # 方法1：从官方GitHub仓库下载最新版 ossutil
       - name: 配置阿里云OSS 
         uses: yizhoumo/setup-ossutil@v2
         with:
@@ -37,7 +33,8 @@ jobs:
           access-key-id: ${{ secrets.OSS_ACCESS_KEY_ID }}
           access-key-secret: ${{ secrets.OSS_ACCESS_KEY_SECRET }}
 
-      - name: 上传资源
+      - name: 清理并上传到OSS
         run: |
-          ossutil rm -rf oss://${{ secrets.OSS_BUCKET }}
-          ossutil cp -rf public oss://${{ secrets.OSS_BUCKET }}
+          # 直接使用 ossutil64 命令（不需要 ./）
+          ossutil64 rm -rf oss://${{ secrets.OSS_BUCKET }}
+          ossutil64 cp -rf public/ oss://${{ secrets.OSS_BUCKET }}
