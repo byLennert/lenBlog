@@ -25,18 +25,17 @@ jobs:
       - name: 构建网站
         run: hugo --minify
 
-      - name: 下载并配置OSS工具
-        run: |
-          # 方法1：从官方GitHub仓库下载最新版 ossutil
-          wget -O ossutil64 https://github.com/aliyun/ossutil/releases/download/v1.7.19/ossutil64
-          chmod 755 ossutil64
-          
-          # 或者方法2：使用阿里云新的下载链接（如果上面的不行）
-          # wget -O ossutil64 "https://gosspublic.alicdn.com/ossutil/1.7.19/ossutil64?spm=a2c4g.11186623.0.0.5a6d5f0e3pKdRf&file=ossutil64"
-          
-          # 验证下载是否成功
-          ls -la ossutil64
-          ./ossutil64 version
+      # - name: 下载并配置OSS工具
+      #   run:
+      #     wget https://github.com/aliyun/ossutil/releases/download/v1.7.20/ossutil64
+      #     # 方法1：从官方GitHub仓库下载最新版 ossutil
+      - name: 配置阿里云OSS 
+        uses: yizhoumo/setup-ossutil@v2
+        with:
+          ossutil-version: 'latest'
+          endpoint: ${{ secrets.OSS_ENDPOINT }}
+          access-key-id: ${{ secrets.OSS_ACCESS_KEY_ID }}
+          access-key-secret: ${{ secrets.OSS_ACCESS_KEY_SECRET }}
 
       - name: 清理并上传到OSS
         run: |
