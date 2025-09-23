@@ -64,33 +64,16 @@ jobs:
       - name: 构建网站
         run: hugo --minify
 
-      - name: 测试OSS连接
-        run: |
-          echo "=== 开始测试OSS连接 ==="
-          # 下载ossutil
-          wget -q https://github.com/aliyun/ossutil/releases/download/v1.7.20/ossutil64
-          chmod +x ossutil64
-          
-          # 测试列出bucket内容（只列出，不修改）
-          echo "测试列出Bucket内容..."
-          ./ossutil64 ls oss://${{ secrets.OSS_BUCKET }} -e ${{ secrets.OSS_ENDPOINT }} -i ${{ secrets.OSS_ACCESS_KEY_ID }} -k ${{ secrets.OSS_ACCESS_KEY_SECRET }} --limited-num 1
-          
-          if [ $? -eq 0 ]; then
-            echo "✅ OSS连接测试成功"
-          else
-            echo "❌ OSS连接测试失败"
-            exit 1
-          fi
 
-      - name: 清理并上传到OSS
+      - name: 配置阿里云OSS 
+        uses: yizhoumo/setup-ossutil@v2
+        with:
+          ossutil-version: 'latest'
+          endpoint: ${{ secrets.OSS_ENDPOINT }}
+          access-key-id: ${{ secrets.OSS_ACCESS_KEY_ID }}
+          access-key-secret: ${{ secrets.OSS_ACCESS_KEY_SECRET }}
+
+      - name: 上传资源
         run: |
-          echo "=== 开始部署到OSS ==="
-          # 清理Bucket
-          echo "清理OSS Bucket..."
-          ./ossutil64 rm -rf oss://${{ secrets.OSS_BUCKET }} -e ${{ secrets.OSS_ENDPOINT }} -i ${{ secrets.OSS_ACCESS_KEY_ID }} -k ${{ secrets.OSS_ACCESS_KEY_SECRET }}
-          
-          # 上传新文件
-          echo "上传新文件..."
-          ./ossutil64 cp -rf public/ oss://${{ secrets.OSS_BUCKET }} -e ${{ secrets.OSS_ENDPOINT }} -i ${{ secrets.OSS_ACCESS_KEY_ID }} -k ${{ secrets.OSS_ACCESS_KEY_SECRET }}
-          
-          echo "✅ 部署完成"
+          ossutil rm -rf oss://${{ secrets.OSS_BUCKET }}
+          ossutil cp -rf public oss://${{ secrets.OSS_BUCKET }}
