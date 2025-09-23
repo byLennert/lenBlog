@@ -33,8 +33,19 @@ jobs:
           access-key-id: ${{ secrets.OSS_ACCESS_KEY_ID }}
           access-key-secret: ${{ secrets.OSS_ACCESS_KEY_SECRET }}
 
+      - name: 验证OSS配置
+        run: |
+          # 检查 ossutil 是否可用
+          which ossutil64
+          ossutil64 version
+          
+          # 测试列出Bucket内容（验证配置是否正确）
+          ossutil64 ls oss://${{ secrets.OSS_BUCKET }}
+
       - name: 清理并上传到OSS
         run: |
-          # 直接使用 ossutil64 命令（不需要 ./）
+          # 清理Bucket
           ossutil64 rm -rf oss://${{ secrets.OSS_BUCKET }}
+          
+          # 上传新文件
           ossutil64 cp -rf public/ oss://${{ secrets.OSS_BUCKET }}
