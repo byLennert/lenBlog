@@ -1,353 +1,223 @@
 baseURL = "http://example.org/"
-# 閺囧瓨鏁兼担璺ㄦ暏 Hugo 閺嬪嫬缂撶純鎴犵彲閺冩湹濞囬悽銊ф畱姒涙顓绘稉濠氼暯
+# Hugo 生成的网站基础地址
 theme = "LoveIt"
 
-# 缂冩垹鐝弽鍥暯
+# 网站标题
 title = "LenBlog"
 
-# 缂冩垹鐝拠顓♀枅, 娴犲懎婀潻娆撳櫡 CN 婢堆冨晸 ["en", "zh-CN", "fr", "pl", ...]
+# 网站语言设置，中文为 "zh-CN"
 languageCode = "zh-CN"
 
-# 鐠囶叀鈻堥崥宥囆?["English", "缁犫偓娴ｆ挷鑵戦弬 ", "Fran鑾絘is", "Polski", ...]
-languageName = "缁犫偓娴ｆ挷鑵戦弬 "
+# 语言名称，用于展示
+languageName = "中文"
 
-# 閺勵垰鎯侀崠鍛娑擃厽妫╅棅鈺傛瀮鐎?
+# 是否启用 CJK（中日韩）语言支持
 hasCJKLanguage = true
-description = "鐠佹澘缍嶉幎鈧張顖氭嫲閹存劙鏆遍惃鍕叀鐠?"
+description = "一个基于 Hugo 的个人博客网站"
 
-# 閼挎粌宕熼柊宥囩枂
+# 导航菜单配置
 [menu]
   [[menu.main]]
-
     weight = 1
     identifier = "posts"
-    # 娴ｇ姴褰叉禒銉ユ躬閸氬秶袨 (閸忎浇顔?HTML 閺嶇厧绱? 娑斿澧犲ǎ璇插閸忔湹绮穱鈩冧紖, 娓氬顩ч崶鐐垼
     pre = ""
-    # 娴ｇ姴褰叉禒銉ユ躬閸氬秶袨 (閸忎浇顔?HTML 閺嶇厧绱? 娑斿鎮楀ǎ璇插閸忔湹绮穱鈩冧紖, 娓氬顩ч崶鐐垼
     post = ""
-    name = "閺傚洨鐝?
+    name = "文章"
     url = "/posts/"
-    # 瑜版挷缍樼亸鍡涚炊閺嶅洦鍋撻崑婊冩躬濮濄倛褰嶉崡鏇㈡懠閹恒儰绗傞弮 , 鐏忓棙妯夌粈铏规畱閺嶅洭顣?    title = ""
-  [[menu.main]]
+    title = ""
 
+  [[menu.main]]
     weight = 2
-
     identifier = "tags"
-
     pre = ""
-
     post = ""
-
-    name = "閺嶅洨顒?
-
+    name = "标签"
     url = "/tags/"
-
     title = ""
 
   [[menu.main]]
-
     weight = 3
-
     identifier = "categories"
-
     pre = ""
-
     post = ""
-
-    name = "閸掑棛琚?
-
+    name = "分类"
     url = "/categories/"
-
     title = ""
 
-# Hugo 鐟欙絾鐎介弬鍥ㄣ€傞惃鍕帳缂?
+# Hugo 的 Markdown 渲染设置
 [markup]
-
-
-  # 鐠囶厽纭舵妯瑰瘨鐠佸墽鐤?(https://gohugo.io/content-management/syntax-highlighting)
-
   [markup.highlight]
-
-    # false 閺勵垰绻€鐟曚胶娈戠拋鍓х枂 (https://github.com/dillonzq/LoveIt/issues/158)
-
+    # 是否禁用 CSS 类高亮（false 表示启用）
     noClasses = false
-[outputs]
 
+# 输出格式设置
+[outputs]
   home = ["HTML", "RSS", "JSON"]
+
+# 主题参数配置
 [params]
-  # 缂冩垹鐝妯款吇娑撳顣?["auto", "light", "dark"]
+  # 默认主题模式：auto（自动切换）、light（亮色）、dark（暗色）
   defaultTheme = "auto"
-  # 缂冩垹鐝弽鍥暯, 閻劋绨?Open Graph 閸? Twitter Cards
+
+  # 网站标题（用于 SEO 和社交分享）
   title = "LenBlog"
-  # 缂冩垹鐝幓蹇氬牚, 閻劋绨?RSS, SEO, Open Graph 閸? Twitter Cards
-  description = "鐠佹澘缍嶉幎鈧張顖氭嫲閹存劙鏆遍惃鍕叀鐠?"
-  # 缂冩垹鐝崶鍓у, 閻劋绨?Open Graph 閸? Twitter Cards
+
+  # 网站描述（用于 SEO 和社交分享）
+  description = "一个基于 Hugo 的个人博客网站"
+
+  # 网站图片（用于 SEO 和社交分享）
   images = []
-  # 娴ｆ粏鈧懘鍘ょ純 
+
+  # 作者信息
   [params.author]
     name = "Lennert"
     email = "1416679017@qq.com"
     link = ""
-  # 妞ょ敻娼版径鎾劥鐎佃壈鍩呴弽蹇涘帳缂?
+
+  # 页面顶部标题栏配置
   [params.header]
     desktopMode = "fixed"
     mobileMode = "auto"
-    # 妞ょ敻娼版径鎾劥鐎佃壈鍩呴弽蹇旂垼妫版﹢鍘ょ純 
     [params.header.title]
-    # LOGO 閻? URL
       logo = ""
-      # 閺嶅洭顣介崥宥囆?      name = "LenBlog"
-      # 娴ｇ姴褰叉禒銉ユ躬閸氬秶袨 (閸忎浇顔?HTML 閺嶇厧绱? 娑斿澧犲ǎ璇插閸忔湹绮穱鈩冧紖, 娓氬顩ч崶鐐垼
+      name = "LenBlog"
       pre = ""
-      # 娴ｇ姴褰叉禒銉ユ躬閸氬秶袨 (閸忎浇顔?HTML 閺嶇厧绱? 娑斿鎮楀ǎ璇插閸忔湹绮穱鈩冧紖, 娓氬顩ч崶鐐垼
       post = ""
-      # whether to use typeit animation for title name
-      # 閺勵垰鎯佹稉鐑樼垼妫版ɑ妯夌粈鐑樺ⅵ鐎涙婧€閸斻劎鏁?      typeit = false
-  # 妞ょ敻娼版惔鏇㈠劥娣団剝浼呴柊宥囩枂
+      typeit = false
+
+  # 页面底部配置
   [params.footer]
     enable = true
-    # 閼奉亜鐣炬稊澶婂敶鐎? (閺€顖涘瘮 HTML 閺嶇厧绱?
     custom = ""
-    # 閺勵垰鎯侀弰鍓с仛 Hugo 閸滃奔瀵屾０妯逛繆閹?
-    hugo = false    
-    # 閺勵垰鎯侀弰鍓с仛閻楀牊娼堟穱鈩冧紖
+    hugo = false
     copyright = true
-    # 閺勵垰鎯侀弰鍓с仛娴ｆ粏鈧?
     author = true
-    # 缂冩垹鐝崚娑氱彌楠炵繝鍞?    since = 2024
-    # ICP 婢跺洦顢嶆穱鈩冧紖閿涘奔绮庨崷銊よ厬閸ユ垝濞囬悽  (閺€顖涘瘮 HTML 閺嶇厧绱?
+    since = 2024
     icp = ""
-    # 鐠佺褰查崡蹇氼唴娣団剝浼?(閺€顖涘瘮 HTML 閺嶇厧绱?
-    license= ""
-  # Section (閹碘偓閺堝鏋冪粩 ) 妞ょ敻娼伴柊宥囩枂
+    license = ""
+
+  # 列表页面配置（如文章列表）
   [params.section]
-    # section 妞ょ敻娼板В蹇涖€夐弰鍓с仛閺傚洨鐝烽弫浼村櫤
     paginate = 20
-    # 閺冦儲婀￠弽鐓庣础 (閺堝牆鎷伴弮 )
     dateFormat = "01-02"
-    # RSS 閺傚洨鐝烽弫鎵窗
     rss = 10
-  # List (閻╊喖缍嶉幋鏍ㄧ垼缁?) 妞ょ敻娼伴柊宥囩枂
+
   [params.list]
-    # list 妞ょ敻娼板В蹇涖€夐弰鍓с仛閺傚洨鐝烽弫浼村櫤
     paginate = 20
-    # date format (month and day)
-    # 閺冦儲婀￠弽鐓庣础 (閺堝牆鎷伴弮 )
     dateFormat = "01-02"
-    # amount of RSS pages
-    # RSS 閺傚洨鐝烽弫鎵窗
     rss = 10
-  # 鎼存梻鏁ら崶鐐垼闁板秶鐤?  [params.app]
-    # optional site title override for the app when added to an iOS home screen or Android launcher
-    # 瑜版挻鍧婇崝鐘插煂 iOS 娑撹鐫嗛獮鏇熷灗閼? Android 閸氼垰濮╅崳銊︽閻ㄥ嫭鐖ｆ０ , 鐟曞棛娲婃妯款吇閺嶅洭顣?    title = "My cool site"
-    # whether to omit favicon resource links
-    # 閺勵垰鎯侀梾鎰缂冩垹鐝崶鐐垼鐠у嫭绨柧鐐复
+
+  # Web App 配置（如添加到主屏幕）
+  [params.app]
+    title = "My cool site"
     noFavicon = false
-    # modern SVG favicon to use in place of older style .png and .ico files
-    # 閺囧骞囨禒锝囨畱 SVG 缂冩垹鐝崶鐐垼, 閸欘垱娴涙禒锝嗘＋閻? .png 閸? .ico 閺傚洣娆?    svgFavicon = ""
-    # Android browser theme color
-    # Android 濞村繗顫嶉崳銊ゅ瘜妫版澹?    themeColor = "#ffffff"
-    # Safari mask icon color
-    # Safari 閸ョ偓鐖ｆ０婊嗗
+    svgFavicon = ""
+    themeColor = "#ffffff"
     iconColor = "#5bbad5"
-    # Windows v8-11 tile color
-    # Windows v8-11 绾句浇鍒涙０婊嗗
     tileColor = "#da532c"
-  # 閹兼粎鍌ㄩ柊宥囩枂
+
+  # 搜索功能配置
   [params.search]
     enable = true
-    # type of search engine ["lunr", "algolia"]
-    # 閹兼粎鍌ㄥ鏇熸惛閻ㄥ嫮琚崹  ["lunr", "algolia"]
     type = "lunr"
-    # max index length of the chunked content
-    # 閺傚洨鐝烽崘鍛啇閺堚偓闂€璺ㄥ偍瀵洟鏆辨惔 
     contentLength = 4000
-    # placeholder of the search bar
-    # 閹兼粎鍌ㄥ鍡欐畱閸楃姳缍呴幓鎰仛鐠?
     placeholder = ""
-    # max number of results length
-    # 閺堚偓婢堆呯波閺嬫粍鏆熼惄 
     maxResultLength = 10
-    # snippet length of the result
-    # 缂佹挻鐏夐崘鍛啇閻楀洦顔岄梹鍨
     snippetLength = 30
-    # HTML tag name of the highlight part in results
-    # 閹兼粎鍌ㄧ紒鎾寸亯娑擃參鐝禍顕€鍎撮崚鍡欐畱 HTML 閺嶅洨顒?    highlightTag = "em"
-    # whether to use the absolute URL based on the baseURL in search index
-    # 閺勵垰鎯侀崷銊︽偝缁便垻鍌ㄥ鏇氳厬娴ｈ法鏁ら崺杞扮艾 baseURL 閻ㄥ嫮绮风€电鐭惧 
+    highlightTag = "em"
     absoluteURL = false
     [params.search.algolia]
       index = ""
       appID = ""
       searchKey = ""
-  # 娑撳銆夋穱鈩冧紖鐠佸墽鐤?  [params.home]
-    # amount of RSS pages
-    # RSS 閺傚洨鐝烽弫鎵窗
+
+  # 首页配置
+  [params.home]
     rss = 10
-    # Home page profile
-    # 娑撳銆夋稉顏冩眽娣団剝浼?    [params.home.profile]
+    [params.home.profile]
       enable = true
-      # Gravatar 闁喚顔堥敍宀€鏁ゆ禍搴濈喘閸忓牆婀稉濠氥€夐弰鍓с仛閻ㄥ嫬銇旈崓 
       gravatarEmail = ""
-      # URL of avatar shown in home page
-      # 娑撳銆夐弰鍓с仛婢舵潙鍎氶惃  URL
       avatarURL = "https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAEChYto0i4kmcG__xYeqET8KnZl8wm3UwAC8hkAApqnkFaT8uVmJrNp0zYE.jpg"
-      # title shown in home page (HTML format is supported)
-      # 娑撳銆夐弰鍓с仛閻ㄥ嫮缍夌粩娆愮垼妫? (閺€顖涘瘮 HTML 閺嶇厧绱?
-      title = " "
-      # subtitle shown in home page (HTML format is supported)
-      # 娑撳銆夐弰鍓с仛閻ㄥ嫮缍夌粩娆忓閺嶅洭顣?(閸忎浇顔?HTML 閺嶇厧绱?
-      subtitle = "娴滆桨鎶€缁夊缂氶弶銉︽箒娣団槄绱濇禍瀣洤閺勩儲鈪垫禍鍡樻￥閻?"
-      # whether to use typeit animation for subtitle
-      # 閺勵垰鎯佹稉鍝勫閺嶅洭顣介弰鍓с仛閹垫挸鐡ч張鍝勫З閻?
+      title = ""
+      subtitle = "技术博客，记录成长与思考"
       typeit = true
-      # whether to show social links
-      # 閺勵垰鎯侀弰鍓с仛缁€鍙ユ唉鐠愶箑褰?      social = true
-      # disclaimer (HTML format is supported)
-      # 閸忓秷鐭楁竟鐗堟 (閺€顖涘瘮 HTML 閺嶇厧绱?
+      social = true
       disclaimer = ""
-    # Home page posts
-    # 娑撳銆夐弬鍥╃彿閸掓銆?    [params.home.posts]
+    [params.home.posts]
       enable = true
-      # special amount of posts in each home posts page
-      # 娑撳銆夊В蹇涖€夐弰鍓с仛閺傚洨鐝烽弫浼村櫤
       paginate = 6
-  # Social config in home page
-  # 娑撳銆夐惃鍕仦娴溿倓淇婇幁顖濐啎缂?
+
+  # 社交链接配置
   [params.social]
     GitHub = ""
     Email = ""
     Phone = ""
     RSS = ""
 
-  # Page global config
-  # 閺傚洨鐝锋い鐢告桨閸忋劌鐪柊宥囩枂
+  # 页面全局配置
   [params.page]
-    # whether to hide a page from home page
-    # 閺勵垰鎯侀崷銊ゅ瘜妞ょ敻娈ｉ挊蹇庣缁″洦鏋冪粩 
     hiddenFromHomePage = false
-    # whether to hide a page from search results
-    # 閺勵垰鎯侀崷銊︽偝缁便垻绮ㄩ弸婊€鑵戦梾鎰娑撯偓缁″洦鏋冪粩 
     hiddenFromSearch = false
-    # whether to enable twemoji
-    # 閺勵垰鎯佹担璺ㄦ暏 twemoji
     twemoji = true
-    # whether to enable lightgallery
-    # 閺勵垰鎯佹担璺ㄦ暏 lightgallery
     lightgallery = false
-    # whether to enable the ruby extended syntax
-    # 閺勵垰鎯佹担璺ㄦ暏 ruby 閹碘晛鐫嶇拠顓熺《
     ruby = true
-    # whether to enable the fraction extended syntax
-    # 閺勵垰鎯佹担璺ㄦ暏 fraction 閹碘晛鐫嶇拠顓熺《
     fraction = true
-    # whether to enable the fontawesome extended syntax
-    # 閺勵垰鎯佹担璺ㄦ暏 fontawesome 閹碘晛鐫嶇拠顓熺《
     fontawesome = true
-    # whether to show link to Raw Markdown content of the content
-    # 閺勵垰鎯侀弰鍓с仛閸樼喎顫?Markdown 閺傚洦銆傞崘鍛啇閻ㄥ嫰鎽奸幒 
     linkToMarkdown = true
-    # whether to show the full text content in RSS
-    # 閺勵垰鎯侀崷  RSS 娑擃厽妯夌粈鍝勫弿閺傚洤鍞寸€?
     rssFullText = false
-    # Table of the contents config
-    # 閻╊喖缍嶉柊宥囩枂
+
     [params.page.toc]
-      # whether to enable the table of the contents
-      # 閺勵垰鎯佹担璺ㄦ暏閻╊喖缍?      enable = true
-      # whether to keep the static table of the contents in front of the post
-      # 閺勵垰鎯佹穱婵囧瘮娴ｈ法鏁ら弬鍥╃彿閸撳秹娼伴惃鍕饯閹胶娲拌ぐ 
+      enable = true
       keepStatic = false
-      # whether to make the table of the contents in the sidebar automatically collapsed
-      # 閺勵垰鎯佹担澶告櫠鏉堝湱娲拌ぐ鏇″殰閸斻劍濮岄崣鐘茬潔瀵偓
       auto = true
-    # Code config
-    # 娴狅絿鐖滈柊宥囩枂
+
     [params.page.code]
-      # whether to show the copy button of the code block
-      # 閺勵垰鎯侀弰鍓с仛娴狅絿鐖滈崸妤冩畱婢跺秴鍩楅幐澶愭尦
       copy = true
-      # the maximum number of lines of displayed code by default
-      # 姒涙顓荤仦鏇炵磻閺勫墽銇氶惃鍕敩閻浇顢戦弫 
       maxShownLines = 30
-    [params.page.code.render]
-      goat = true
-      mermaid = true
-    # KaTeX mathematical formulas config (KaTeX https://katex.org/)
-    # KaTeX 閺佹澘顒熼崗顒€绱￠柊宥囩枂 (KaTeX https://katex.org/)
+      [params.page.code.render]
+        goat = true
+        mermaid = true
+
     [params.page.math]
       enable = false
-      # default inline delimiter is $ ... $ and \( ... \)
-      # 姒涙顓荤悰灞藉敶鐎规氨鏅粭锔芥Ц $ ... $ 閸? \( ... \)
       inlineLeftDelimiter = ""
       inlineRightDelimiter = ""
-      # default block delimiter is $$ ... $$, \[ ... \], \begin{equation} ... \end{equation} and some other functions
-      # 姒涙顓婚崸妤€鐣鹃悾宀€顑侀弰  $$ ... $$, \[ ... \],  \begin{equation} ... \end{equation} 閸滃奔绔存禍娑樺従鐎瑰啰娈戦崙鑺ユ殶
       blockLeftDelimiter = ""
       blockRightDelimiter = ""
-      # KaTeX extension copy_tex
-      # KaTeX 閹绘帊娆?copy_tex
       copyTex = true
-      # KaTeX extension mhchem
-      # KaTeX 閹绘帊娆?mhchem
       mhchem = true
-    # Mapbox GL JS config (Mapbox GL JS https://docs.mapbox.com/mapbox-gl-js)
-    # Mapbox GL JS 闁板秶鐤?(Mapbox GL JS https://docs.mapbox.com/mapbox-gl-js)
+
     [params.page.mapbox]
-      # access token of Mapbox GL JS
-      # Mapbox GL JS 閻? access token
       accessToken = ""
-      # style for the light theme
-      # 濞村懓澹婃稉濠氼暯閻ㄥ嫬婀撮崶鐐壉瀵?
       lightStyle = "mapbox://styles/mapbox/light-v10?optimize=true"
-      # style for the dark theme
-      # 濞ｈ精澹婃稉濠氼暯閻ㄥ嫬婀撮崶鐐壉瀵?
       darkStyle = "mapbox://styles/mapbox/dark-v10?optimize=true"
-      # whether to add NavigationControl (https://docs.mapbox.com/mapbox-gl-js/api/#navigationcontrol)
-      # 閺勵垰鎯佸ǎ璇插 NavigationControl (https://docs.mapbox.com/mapbox-gl-js/api/#navigationcontrol)
       navigation = true
-      # whether to add GeolocateControl (https://docs.mapbox.com/mapbox-gl-js/api/#geolocatecontrol)
-      # 閺勵垰鎯佸ǎ璇插 GeolocateControl (https://docs.mapbox.com/mapbox-gl-js/api/#geolocatecontrol)
       geolocate = true
-      # whether to add ScaleControl (https://docs.mapbox.com/mapbox-gl-js/api/#scalecontrol)
-      # 閺勵垰鎯佸ǎ璇插 ScaleControl (https://docs.mapbox.com/mapbox-gl-js/api/#scalecontrol)
       scale = true
-      # whether to add FullscreenControl (https://docs.mapbox.com/mapbox-gl-js/api/#fullscreencontrol)
-      # 閺勵垰鎯佸ǎ璇插 FullscreenControl (https://docs.mapbox.com/mapbox-gl-js/api/#fullscreencontrol)
       fullscreen = true
-    # Social share links in post page
-    # 閺傚洨鐝锋い鐢告桨閻ㄥ嫬鍨庢禍顐′繆閹垵顔曠純 
+
     [params.page.share]
       enable = false
       Facebook = false
       Weibo = false
       Baidu = false
       Telegram = false
-    # Comment config
-    # 鐠囧嫯顔戠化鑽ょ埠鐠佸墽鐤?    [params.page.comment]
+
+    [params.page.comment]
       enable = true
-      # Gitalk comment config (https://github.com/gitalk/gitalk)
-      # Gitalk 鐠囧嫯顔戠化鑽ょ埠鐠佸墽鐤?(https://github.com/gitalk/gitalk)
       [params.page.comment.gitalk]
         enable = false
         owner = ""
         repo = ""
         clientId = ""
         clientSecret = ""
-      # Valine comment config (https://github.com/xCss/Valine)
-      # Valine 鐠囧嫯顔戠化鑽ょ埠鐠佸墽鐤?(https://github.com/xCss/Valine)
-      # giscus comment config (https://giscus.app/)
-      # giscus comment 鐠囧嫯顔戠化鑽ょ埠鐠佸墽鐤?(https://giscus.app/zh-CN)
       [params.page.comment.giscus]
-        # You can refer to the official documentation of giscus to use the following configuration.
-        # 娴ｇ姴褰叉禒銉ュ棘閼板啫鐣奸弬瑙勬瀮濡楋絾娼垫担璺ㄦ暏娑撳鍨柊宥囩枂
         enable = true
         repo = "byLennert/lenBlog"
         repoId = "R_kgDOP1KB5g"
         category = "Announcements"
         categoryId = "DIC_kwDOP1KB5s4Cv1Ew"
-        # automatically adapt the current theme i18n configuration when empty
-        # 娑撹櫣鈹栭弮鎯板殰閸斻劑鈧倿鍘よぐ鎾冲娑撳顣?i18n 闁板秶鐤?        lang = ""
+        lang = ""
         mapping = "pathname"
         reactionsEnabled = "1"
         emitMetadata = "0"
@@ -355,46 +225,33 @@ description = "鐠佹澘缍嶉幎鈧張顖氭嫲閹存劙鏆遍惃鍕叀�
         lazyLoading = false
         lightTheme = "light"
         darkTheme = "dark"
-    # Third-party library config
-    # 缁楊兛绗侀弬鐟扮氨闁板秶鐤?    [params.page.library]
+
+    [params.page.library]
       [params.page.library.css]
         # someCSS = "some.css"
-        # located in "assets/" 娴ｅ秳绨?"assets/"
-        # Or 閹存牞鈧?
+        # 位于 "assets/" 目录下
+        # 或者使用 CDN 链接
         # someCSS = "https://cdn.example.com/some.css"
       [params.page.library.js]
         # someJavascript = "some.js"
-        # located in "assets/" 娴ｅ秳绨?"assets/"
-        # Or 閹存牞鈧?
+        # 位于 "assets/" 目录下
+        # 或者使用 CDN 链接
         # someJavascript = "https://cdn.example.com/some.js"
-    # Page SEO config
-    # 妞ょ敻娼?SEO 闁板秶鐤?    [params.page.seo]
-      # image URL
-      # 閸ュ墽澧?URL
+
+    [params.page.seo]
       images = []
-      # Publisher info
-      # 閸戣櫣澧楅懓鍛繆閹?
       [params.page.seo.publisher]
         name = ""
         logoUrl = ""
 
-  # TypeIt config
-  # TypeIt 闁板秶鐤?  [params.typeit]
-    # typing speed between each step (measured in milliseconds)
-    # 濮ｅ繋绔村銉ф畱閹垫挸鐡ч柅鐔峰 (閸楁洑缍呴弰顖涱嚑缁?)
+  # TypeIt 打字动画配置
+  [params.typeit]
     speed = 100
-    # blinking speed of the cursor (measured in milliseconds)
-    # 閸忓鐖ｉ惃鍕／閻戜線鈧喎瀹?(閸楁洑缍呴弰顖涱嚑缁?)
     cursorSpeed = 1000
-    # character used for the cursor (HTML format is supported)
-    # 閸忓鐖ｉ惃鍕摟缁? (閺€顖涘瘮 HTML 閺嶇厧绱?
     cursorChar = "|"
-    # cursor duration after typing finishing (measured in milliseconds, "-1" means unlimited)
-    # 閹垫挸鐡х紒鎾存将娑斿鎮楅崗澶嬬垼閻ㄥ嫭瀵旂紒顓熸闂? (閸楁洑缍呴弰顖涱嚑缁?, "-1" 娴狅綀銆冮弮鐘绘婢?)
     duration = -1
 
-  # Site verification code for Google/Bing/Yandex/Pinterest/Baidu
-  # 缂冩垹鐝宀冪槈娴狅絿鐖滈敍宀€鏁ゆ禍  Google/Bing/Yandex/Pinterest/Baidu
+  # 网站验证代码（用于搜索引擎）
   [params.verification]
     google = ""
     bing = ""
@@ -402,64 +259,37 @@ description = "鐠佹澘缍嶉幎鈧張顖氭嫲閹存劙鏆遍惃鍕叀�
     pinterest = ""
     baidu = ""
 
-  # Site SEO config
-  # 缂冩垹鐝?SEO 闁板秶鐤?  [params.seo]
-    # image URL
-    # 閸ュ墽澧?URL
+  # 网站 SEO 配置
+  [params.seo]
     image = ""
-    # thumbnail URL
-    # 缂傗晝鏆愰崶  URL
     thumbnailUrl = ""
 
-  # Analytics config
-  # 缂冩垹鐝崚鍡樼€介柊宥囩枂
+  # 分析工具配置
   [params.analytics]
-    # Google Analytics
     [params.analytics.google]
       id = ""
-      # whether to respect the browser閳ユ獨 閳ユ竸o not track閳? setting
-      # 閺勵垰鎯侀柆闈涙儕濞村繗顫嶉崳銊ф畱 閳ユ窉o Not Track閳? 鐠佸墽鐤?      respectDoNotTrack = false
-    # Fathom Analytics
+      respectDoNotTrack = false
     [params.analytics.fathom]
       id = ""
-      # server url for your tracker if you're self hosting
-      # 閼奉亣顢戦幍妯碱吀鏉╁€熼嚋閸ｃ劍妞傞惃鍕瘜閺堥缚鐭惧 
       server = ""
-    # Plausible Analytics
     [params.analytics.plausible]
       dataDomain = ""
-    # Yandex Metrica
     [params.analytics.yandexMetrica]
       id = ""
 
-  # Cookie consent config
-  # Cookie 鐠佺褰查柊宥囩枂
+  # Cookie 同意横幅配置
   [params.cookieconsent]
     enable = false
-    # text strings used for Cookie consent banner
-    # 閻劋绨?Cookie 鐠佺褰插Ο顏勭畽閻ㄥ嫭鏋冮張顒€鐡х粭锔胯
     [params.cookieconsent.content]
       message = ""
       dismiss = ""
       link = ""
 
-  # CDN config for third-party library files
-  # 缁楊兛绗侀弬鐟扮氨閺傚洣娆㈤惃  CDN 鐠佸墽鐤?  [params.cdn]
-    # CDN data file name, disabled by default
-    # ["jsdelivr.yml"]
-    # located in "themes/LoveIt/assets/data/cdn/" directory
-    # you can store your own data files in the same path under your project:
-    # "assets/data/cdn/"
-    # CDN 閺佺増宓侀弬鍥︽閸氬秶袨, 姒涙顓绘稉宥呮儙閻?
-    # ["jsdelivr.yml"]
-    # 娴ｅ秳绨?"themes/LoveIt/assets/data/cdn/" 閻╊喖缍?    # 閸欘垯浜掗崷銊ょ稑閻ㄥ嫰銆嶉惄顔荤瑓閻╃鎮撶捄顖氱窞鐎涙ɑ鏂佹担鐘哄殰瀹歌京娈戦弫鐗堝祦閺傚洣娆?
-    # "assets/data/cdn/"
+  # CDN 配置（用于第三方库）
+  [params.cdn]
     data = "jsdelivr.yml"
 
-  # Compatibility config
-  # 閸忕厧顔愰幀褑顔曠純 
+  # 兼容性配置
   [params.compatibility]
-    # whether to use Polyfill.io to be compatible with older browsers
-    # 閺勵垰鎯佹担璺ㄦ暏 Polyfill.io 閺夈儱鍚嬬€硅妫蹇旂セ鐟欏牆娅?    polyfill = false
-    # whether to use object-fit-images to be compatible with older browsers
-    # 閺勵垰鎯佹担璺ㄦ暏 object-fit-images 閺夈儱鍚嬬€硅妫蹇旂セ鐟欏牆娅?    objectFit = false
+    polyfill = false
+    objectFit = false
