@@ -2,8 +2,11 @@
 date = '2025-09-23T12:40:52+08:00'
 draft = false
 title = '创建lenBlog容易出现的小问题解决合集'
-
+tags = ["Hugo","博客"]
+categories = ["技术"]
 +++
+
+在创建这个博客的时候遇到了一些问题，随手进行一次记录。
 
 #### 仅设置giscus评论不生效
 
@@ -29,3 +32,4 @@ git config --global https.proxy 127.0.0.1:7890
 ```
 
 最后的7890看你代理走的是哪个端口，clash的话默认就是7890
+
