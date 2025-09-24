@@ -3,9 +3,9 @@ date = '2025-09-23T12:40:52+08:00'
 draft = false
 title = '利用Hugo搭建个人博客【极低成本+省运维】'
 
-tags = ["Hugo","OSS","博客","教程","中文"]
+tags = ["Hugo","博客","教程"]
 
-categories = ["技术"]
+categories = ["技术记录"]
 
 +++
 
