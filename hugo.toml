@@ -54,6 +54,10 @@ description = "一个基于 Hugo 的个人博客网站"
   [markup.highlight]
     # 是否禁用 CSS 类高亮（false 表示启用）
     noClasses = false
+  [markup.tableOfContents]
+    endLevel = 6    # 设置目录显示的最大标题级别
+    ordered = false # 是否使用有序列表
+    startLevel = 1  # 设置目录显示的最小标题级别
 
 # 输出格式设置
 [outputs]
