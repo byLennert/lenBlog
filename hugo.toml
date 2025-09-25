@@ -1,4 +1,4 @@
-baseURL = "http://example.org/"
+baseURL = "http://lennert.site/"
 # Hugo 生成的网站基础地址
 theme = "LoveIt"
 
@@ -78,15 +78,15 @@ description = "一个基于 Hugo 的个人博客网站"
     name = "Lennert"
     email = "1416679017@qq.com"
     link = ""
+  # 页面顶部标题栏配置{{  }}
 
-  # 页面顶部标题栏配置
   [params.header]
     desktopMode = "fixed"
     mobileMode = "auto"
     [params.header.title]
       logo = ""
       name = "LenBlog"
-      pre = '<img src="https://lenblog.oss-cn-beijing.aliyuncs.com/favicon-96x96.png" alt="" style="width: 20px; height: 20px;">'
+      pre = '<img src="https://picgo-lenblog.oss-cn-beijing.aliyuncs.com/lenblog/lenLOGO.png" alt="" style="width: 40px; height: 40px;vertical-align: middle;margin-top: -8px;">'
       post = ""
       typeit = false
 
