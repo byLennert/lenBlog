@@ -1,8 +1,8 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>MongoDB - Tag - https://lennert.site/favicon-96x96.png LenBlog</title>
+        <title>MongoDB - Tag - LenBlog</title>
         <link>http://localhost:1313/tags/mongodb/</link>
-        <description>MongoDB - Tag - https://lennert.site/favicon-96x96.png LenBlog</description>
+        <description>MongoDB - Tag - LenBlog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>1416679017@qq.com (Lennert)</managingEditor>
             <webMaster>1416679017@qq.com (Lennert)</webMaster><lastBuildDate>Wed, 24 Sep 2025 15:50:21 &#43;0800</lastBuildDate><atom:link href="http://localhost:1313/tags/mongodb/" rel="self" type="application/rss+xml" /><item>
     <title>MongoDB错误处理【1053】【1067】（意外断开读写中的数据库）</title>

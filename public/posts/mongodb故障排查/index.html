@@ -4,8 +4,8 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
-        <title>MongoDB错误处理【1053】【1067】（意外断开读写中的数据库） - https://lennert.site/favicon-96x96.png LenBlog</title><meta name="Description" content="一个基于 Hugo 的个人博客网站"><meta property="og:url" content="http://localhost:1313/posts/mongodb%E6%95%85%E9%9A%9C%E6%8E%92%E6%9F%A5/">
-  <meta property="og:site_name" content="https://lennert.site/favicon-96x96.png LenBlog">
+        <title>MongoDB错误处理【1053】【1067】（意外断开读写中的数据库） - LenBlog</title><meta name="Description" content="一个基于 Hugo 的个人博客网站"><meta property="og:url" content="http://localhost:1313/posts/mongodb%E6%95%85%E9%9A%9C%E6%8E%92%E6%9F%A5/">
+  <meta property="og:site_name" content="LenBlog">
   <meta property="og:title" content="MongoDB错误处理【1053】【1067】（意外断开读写中的数据库）">
   <meta property="og:description" content="摘要： 本文记录了Windows服务器因意外断电导致MongoDB服务无法启动的解决方案。主要处理了两个错误：1053错误（通过删除并重建MongoDB服务解决）和1067错误（通过修复受损数据文件解决）。重点介绍了使用repair命令修复数据的方法，该过程可能耗时较长（千万级数据需近一天）。最后强调在数据库读写过程中切勿随意断开连接，以免造成数据损坏。解决方案同样适用于Linux系统。">
   <meta property="og:locale" content="zh_CN">
@@ -59,7 +59,7 @@
         <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
     <div class="header-wrapper">
         <div class="header-title">
-            <a href="/" title="https://lennert.site/favicon-96x96.png LenBlog">LenBlog</a>
+            <a href="/" title="LenBlog"><span class="header-title-pre"><img src="https://lenblog.oss-cn-beijing.aliyuncs.com/favicon-96x96.png" alt="" style="width: 20px; height: 20px;"></span>LenBlog</a>
         </div>
         <div class="menu">
             <div class="menu-inner"><a class="menu-item" href="/posts/"> 文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
@@ -82,7 +82,7 @@
     <div class="header-container">
         <div class="header-wrapper">
             <div class="header-title">
-                <a href="/" title="https://lennert.site/favicon-96x96.png LenBlog">LenBlog</a>
+                <a href="/" title="LenBlog"><span class="header-title-pre"><img src="https://lenblog.oss-cn-beijing.aliyuncs.com/favicon-96x96.png" alt="" style="width: 20px; height: 20px;"></span>LenBlog</a>
             </div>
             <div class="menu-toggle" id="menu-toggle-mobile">
                 <span></span><span></span><span></span>

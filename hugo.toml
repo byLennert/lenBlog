@@ -3,7 +3,7 @@ baseURL = "http://example.org/"
 theme = "LoveIt"
 
 # 网站标题
-title = "https://lennert.site/favicon-96x96.png LenBlog"
+title = "LenBlog"
 
 # 网站语言设置，中文为 "zh-CN"
 languageCode = "zh-CN"
@@ -86,7 +86,7 @@ description = "一个基于 Hugo 的个人博客网站"
     [params.header.title]
       logo = ""
       name = "LenBlog"
-      pre = ""
+      pre = '<img src="https://lenblog.oss-cn-beijing.aliyuncs.com/favicon-96x96.png" alt="" style="width: 20px; height: 20px;">'
       post = ""
       typeit = false
 
