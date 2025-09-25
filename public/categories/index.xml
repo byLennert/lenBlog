@@ -1,8 +1,8 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>Categories - Category - LenBlog</title>
+        <title>Categories - Category - https://lennert.site/favicon-96x96.png LenBlog</title>
         <link>http://localhost:1313/categories/</link>
-        <description>Categories - Category - LenBlog</description>
+        <description>Categories - Category - https://lennert.site/favicon-96x96.png LenBlog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>1416679017@qq.com (Lennert)</managingEditor>
             <webMaster>1416679017@qq.com (Lennert)</webMaster><lastBuildDate>Wed, 24 Sep 2025 15:50:21 &#43;0800</lastBuildDate><atom:link href="http://localhost:1313/categories/" rel="self" type="application/rss+xml" /><item>
     <title>故障排查</title>

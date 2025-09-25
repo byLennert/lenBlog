@@ -3,7 +3,7 @@ baseURL = "http://example.org/"
 theme = "LoveIt"
 
 # 网站标题
-title = "LenBlog"
+title = "https://lennert.site/favicon-96x96.png LenBlog"
 
 # 网站语言设置，中文为 "zh-CN"
 languageCode = "zh-CN"

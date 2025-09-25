@@ -1,8 +1,8 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>技术记录 - Category - LenBlog</title>
+        <title>技术记录 - Category - https://lennert.site/favicon-96x96.png LenBlog</title>
         <link>http://localhost:1313/categories/%E6%8A%80%E6%9C%AF%E8%AE%B0%E5%BD%95/</link>
-        <description>技术记录 - Category - LenBlog</description>
+        <description>技术记录 - Category - https://lennert.site/favicon-96x96.png LenBlog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>1416679017@qq.com (Lennert)</managingEditor>
             <webMaster>1416679017@qq.com (Lennert)</webMaster><lastBuildDate>Tue, 23 Sep 2025 12:40:52 &#43;0800</lastBuildDate><atom:link href="http://localhost:1313/categories/%E6%8A%80%E6%9C%AF%E8%AE%B0%E5%BD%95/" rel="self" type="application/rss+xml" /><item>
     <title>创建lenBlog容易出现的小问题解决合集</title>

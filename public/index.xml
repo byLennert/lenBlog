@@ -1,6 +1,6 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>LenBlog</title>
+        <title>https://lennert.site/favicon-96x96.png LenBlog</title>
         <link>http://localhost:1313/</link>
         <description>一个基于 Hugo 的个人博客网站</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>1416679017@qq.com (Lennert)</managingEditor>
