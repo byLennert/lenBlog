@@ -43,11 +43,11 @@ categories = ["技术记录"]
 
 在具体开始之前我们先简单聊一下为什么可以轻松地完成博客的搭建。当前搭建博客的选择已经有很多如Hugo、Hexo等等，其实都是直接将markdown文档与项目结构一起打包，构建好一个静态的HTML网页（包含样式文件），然后将其部署到可被外网访问到的平台上(如服务器或者是OSS对象存储或者是Github Pages)，通过绑定或解析域名访问网页。
 
-<img src="https://picgo-lenblog.oss-cn-beijing.aliyuncs.com/lenblog/202509251658259.png" alt="image-20250925165820154" style="zoom:50%;" />
+![](https://picgo-lenblog.oss-cn-beijing.aliyuncs.com/lenblog/202509251658259.png" alt="image-20250925165820154)
 
 而这其中最繁琐的一步就是，每次写完笔记之后都需要重新完成构建和部署的操作，这会让写博客这个过程变得很啰嗦。所以为了解决频繁的重新部署静态网页的操作，我们这里**将Hugo的项目文件夹存储于Github仓库中，并使用仓库的`Github Action`来自动化帮我们完成部署网页更新的操作**。
 
-<img src="https://picgo-lenblog.oss-cn-beijing.aliyuncs.com/lenblog/202509251717824.png" style="zoom:50%;" />
+![](https://picgo-lenblog.oss-cn-beijing.aliyuncs.com/lenblog/202509251717824.png)
 
 > GitHub Actions 就像是给代码仓库配了一个“智能管家”。当你的代码有新提交、合并请求或者发布新版本时，这个“管家”就会自动帮你运行一系列任务，比如自动测试代码、自动打包、自动部署到服务器，让你不用手动去做这些重复的事，省心又高效。
 
@@ -71,7 +71,7 @@ categories = ["技术记录"]
 
 如果没有备案的域名就创建地域选择香港，有备案就选个离自己近点的地方（比如北京）。存储冗余类型本地冗余就可以的，剩下的配置默认就行，见图所示。Bucket的读取权限这些我们需要创建完之后再设置。
 
-<img src="https://picgo-lenblog.oss-cn-beijing.aliyuncs.com/lenblog/202509251733158.png" alt="image-20250925173304118" style="zoom:50%;" />
+![](https://picgo-lenblog.oss-cn-beijing.aliyuncs.com/lenblog/202509251733158.png)
 
 创建完之后就可以看到Bucket的基本信息了
 
@@ -81,13 +81,13 @@ categories = ["技术记录"]
 
 > 这些页面不需要自己创建，Hugo之后都会生成，这里只是配置一下而已。
 
-<img src="https://fookwood.com/posts/publish-hugo-to-aliyun/setup-static-site.png" alt="img" style="zoom:50%;" />
+![](https://fookwood.com/posts/publish-hugo-to-aliyun/setup-static-site.png)
 
 ##### 域名和证书的设置
 
 通过OSS默认域名访问html等静态资源的时候，浏览器会自动当成文件下载，而不是直接在页面中加载。设置完自定义域名之后，就可以作为页面正常访问了。这是设置页面：
 
-<img src="https://fookwood.com/posts/publish-hugo-to-aliyun/bind-domain.png" alt="img" style="zoom:50%;" />
+![](https://fookwood.com/posts/publish-hugo-to-aliyun/bind-domain.png)
 
 设置分为两部，第一步是验证域名的所有权，另一步是添加CNAME记录，就是将你的域名映射到默认域名。这里的验证和添加，都是到你的域名解析提供商那里进行配置。
 
@@ -126,7 +126,7 @@ categories = ["技术记录"]
 
 这些敏感数据，放到代码仓库里不太安全，Github提供了在仓库里配置敏感信息的能力，可以配置流水线专用的secret：
 
-<img src="https://fookwood.com/posts/publish-hugo-to-aliyun/setup-secrets.png" alt="img" style="zoom:50%;" />
+![](https://fookwood.com/posts/publish-hugo-to-aliyun/setup-secrets.png)
 
 添加secret之后，就可以在流水线中通过secret的名称访问secret的值了。
 
