@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>MongoDB错误处理【1053】【1067】（意外断开读写中的数据库） - LenBlog</title><meta name="Description" content="一个基于 Hugo 的个人博客网站"><meta property="og:url" content="http://localhost:1313/posts/mongodb%E6%95%85%E9%9A%9C%E6%8E%92%E6%9F%A5/">
+  <meta property="og:site_name" content="LenBlog">
+  <meta property="og:title" content="MongoDB错误处理【1053】【1067】（意外断开读写中的数据库）">
+  <meta property="og:description" content="摘要： 本文记录了Windows服务器因意外断电导致MongoDB服务无法启动的解决方案。主要处理了两个错误：1053错误（通过删除并重建MongoDB服务解决）和1067错误（通过修复受损数据文件解决）。重点介绍了使用repair命令修复数据的方法，该过程可能耗时较长（千万级数据需近一天）。最后强调在数据库读写过程中切勿随意断开连接，以免造成数据损坏。解决方案同样适用于Linux系统。">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-09-24T15:50:21+08:00">
+    <meta property="article:modified_time" content="2025-09-24T15:50:21+08:00">
+    <meta property="article:tag" content="MongoDB">
+    <meta property="article:tag" content="故障">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="MongoDB错误处理【1053】【1067】（意外断开读写中的数据库）">
+  <meta name="twitter:description" content="摘要： 本文记录了Windows服务器因意外断电导致MongoDB服务无法启动的解决方案。主要处理了两个错误：1053错误（通过删除并重建MongoDB服务解决）和1067错误（通过修复受损数据文件解决）。重点介绍了使用repair命令修复数据的方法，该过程可能耗时较长（千万级数据需近一天）。最后强调在数据库读写过程中切勿随意断开连接，以免造成数据损坏。解决方案同样适用于Linux系统。">
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site">
+<meta name="referrer" content="no-referrer" /><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://localhost:1313/posts/mongodb%E6%95%85%E9%9A%9C%E6%8E%92%E6%9F%A5/" /><link rel="prev" href="http://localhost:1313/posts/%E5%8D%9A%E5%AE%A2%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E5%90%88%E9%9B%86/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/fontawesome-free/css/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "MongoDB错误处理【1053】【1067】（意外断开读写中的数据库）",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/localhost:1313\/posts\/mongodb%E6%95%85%E9%9A%9C%E6%8E%92%E6%9F%A5\/"
+        },"genre": "posts","keywords": "MongoDB, 故障","wordcount":  1678 ,
+        "url": "http:\/\/localhost:1313\/posts\/mongodb%E6%95%85%E9%9A%9C%E6%8E%92%E6%9F%A5\/","datePublished": "2025-09-24T15:50:21+08:00","dateModified": "2025-09-24T15:50:21+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Lennert"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script>
+          const query = window.matchMedia('(prefers-color-scheme: dark)');
+          function applyTheme() {
+            let theme = window.localStorage?.getItem('theme') || 'auto';
+            let isDark = theme === 'dark' || (theme === 'auto' && query.matches);
+            document.body.setAttribute('theme', isDark? 'dark' : 'light');
+            document.body.setAttribute('cfg-theme', theme);
+          }
+
+          applyTheme();
+          query.addEventListener('change', applyTheme);
+        </script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="LenBlog">LenBlog</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="LenBlog">LenBlog</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">MongoDB错误处理【1053】【1067】（意外断开读写中的数据库）</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Lennert</a></span>&nbsp;<span class="post-category">included in <a href="/categories/%E6%95%85%E9%9A%9C%E6%8E%92%E6%9F%A5/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>故障排查</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2025-09-24">2025-09-24</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1678 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;4 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#起因">起因</a></li>
+        <li><a href="#解决问题1无法启动mongodb服务1053错误">解决问题1：无法启动MongoDB服务[1053错误]</a></li>
+        <li><a href="#解决问题2-进程意外错误1067错误">解决问题2： 进程意外错误[1067错误]</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p><strong>摘要：</strong> 本文记录了Windows服务器因意外断电导致MongoDB服务无法启动的解决方案。主要处理了两个错误：1053错误（通过删除并重建MongoDB服务解决）和1067错误（通过修复受损数据文件解决）。重点介绍了使用repair命令修复数据的方法，该过程可能耗时较长（千万级数据需近一天）。最后强调在数据库读写过程中切勿随意断开连接，以免造成数据损坏。解决方案同样适用于Linux系统。</p>
+<p>[toc]</p>
+<h3 id="起因">起因</h3>
+<p>本人的MongoDB服务在<strong>windows服务器</strong>运行，<strong>且一直有读写的操作</strong>。因为服务器突然断电导致出错，再次重启服务器后无法正常运行MongoDB服务。</p>
+<p>查阅了网上的众多资料后觉得实在很碎片化，尤其是有的文章互相抄袭，难以参考，于是记录下自己遇到的问题和解决成功的办法，如果你同样遇到了<strong>意外断开MongoDB服务（尤其是有读写操作运行的时候）</strong>，那么极有可能遇到这两个错误，希望以下错误处理的方法对你有用。</p>
+<p>（本人服务器环境是windows系统，但是本操作流程可以同样适用于linux系统，具体的命令可以查询ai）</p>
+<p><strong>读写操作执行过程中千万不要随便让数据库断开连接！</strong></p>
+<h3 id="解决问题1无法启动mongodb服务1053错误">解决问题1：无法启动MongoDB服务[1053错误]</h3>
+<p>使用命令行工具或者windows服务启动MongoDB遇到如下报错，无法启动：</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://i-blog.csdnimg.cn/direct/d43472bf45954a8ab778b650018dd743.png"
+        data-srcset="https://i-blog.csdnimg.cn/direct/d43472bf45954a8ab778b650018dd743.png, https://i-blog.csdnimg.cn/direct/d43472bf45954a8ab778b650018dd743.png 1.5x, https://i-blog.csdnimg.cn/direct/d43472bf45954a8ab778b650018dd743.png 2x"
+        data-sizes="auto"
+        alt="https://i-blog.csdnimg.cn/direct/d43472bf45954a8ab778b650018dd743.png"
+        title="在这里插入图片描述" /></p>
+<p>这个错误的解决办法很简单：删除该服务并重新创建一个服务。
+<strong>MongoDB服务相当于注册表的一条命令，并不影响本地的数据，可以随便进行删除和重新创建。</strong></p>
+<ol>
+<li>删除原有的MongoDB服务</li>
+</ol>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-cmd">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cmd" data-lang="cmd"><span class="line"><span class="cl"> sc.exe delete MongoDB</span></span></code></pre></div></div>
+<ol start="2">
+<li>创建新的MongoDB服务
+这个方式有多种，一般分为两种创建的方式：</li>
+</ol>
+<ul>
+<li>一种直接命令输入指定数据库的存储路径 <code>dbpath</code>（可以有本地数据，不会影响） 和日志的路径<code>logpath</code>；</li>
+<li>另一种则是使用<code>config</code>文件（位于MongoDB安装目录的bin目录下的<code>mongod.cfg</code>文件，一般位于<code>C:\Program Files\MongoDB\Server\5.0\bin&gt;</code>），在config文件里面写入配置如数据库存储路径和日志，以及是否开启安全验证等，<strong>这样就可以避免多次直接在命令行中输入路径</strong>。</li>
+</ul>
+<p>为了方便使用，这里我们编辑一个简单的cfg文件（也可以编辑原本的<code>mongod.cfg</code>），在其中写入路径配置</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-cfg">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cfg" data-lang="cfg"><span class="line"><span class="cl"><span class="c1">##数据文件</span>
+</span></span><span class="line"><span class="cl"><span class="na">dbpath</span><span class="o">=</span><span class="s">E:\MongoDB\data</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">##日志文件</span>
+</span></span><span class="line"><span class="cl"><span class="na">logpath</span><span class="o">=</span><span class="s">E:\MongoDB\log\mongo.log</span></span></span></code></pre></div></div>
+<p>然后在<strong>当前的bin目录</strong>下运行以下命令，表示按照config创建一个MongoDB服务。</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-cmd">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cmd" data-lang="cmd"><span class="line"><span class="cl"> mongod.exe --config <span class="s2">&#34;C:\Program Files\MongoDB\Server\5.0\bin\mongod.cfg&#34;</span> --install --serviceName <span class="s2">&#34;MongoDB&#34;</span> --serviceDisplayName <span class="s2">&#34;MongoDB&#34;</span></span></span></code></pre></div></div>
+<p>创建成功是没有返回结果的，此时可以通过<code>任务管理器</code>-<code>服务</code>-<code>打开服务</code>-<code>MongoDB</code>）看到在启动的状态。</p>
+<p>其实就是创建了一个新的命令，如果你的本地数据没有重要的数据，可以直接创建新的服务时候指定一个新的<code>dbpath</code>，这样基本上不会遇到后面1063错误了。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://i-blog.csdnimg.cn/direct/ae8af03fabac47a1a5dad8455fc6aa7f.png"
+        data-srcset="https://i-blog.csdnimg.cn/direct/ae8af03fabac47a1a5dad8455fc6aa7f.png, https://i-blog.csdnimg.cn/direct/ae8af03fabac47a1a5dad8455fc6aa7f.png 1.5x, https://i-blog.csdnimg.cn/direct/ae8af03fabac47a1a5dad8455fc6aa7f.png 2x"
+        data-sizes="auto"
+        alt="https://i-blog.csdnimg.cn/direct/ae8af03fabac47a1a5dad8455fc6aa7f.png"
+        title="windows查看服务是否开启" /></p>
+<ol start="3">
+<li>尝试启动MongoDB
+这里可以可以尝试启动一下，如果直接可以启动说明数据库没有数据文件损坏。<strong>如果没有什么数据文件，推荐可以直接在新的文件夹下存储数据，也就是将<code>dbpath</code>路径置为新的文件夹。</strong></li>
+</ol>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-cmd">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cmd" data-lang="cmd"><span class="line"><span class="cl">net start MongoDB</span></span></code></pre></div></div>
+<h3 id="解决问题2-进程意外错误1067错误">解决问题2： 进程意外错误[1067错误]</h3>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://i-blog.csdnimg.cn/direct/6dd656995fef421ba9ba7d50ea211e0f.png"
+        data-srcset="https://i-blog.csdnimg.cn/direct/6dd656995fef421ba9ba7d50ea211e0f.png, https://i-blog.csdnimg.cn/direct/6dd656995fef421ba9ba7d50ea211e0f.png 1.5x, https://i-blog.csdnimg.cn/direct/6dd656995fef421ba9ba7d50ea211e0f.png 2x"
+        data-sizes="auto"
+        alt="https://i-blog.csdnimg.cn/direct/6dd656995fef421ba9ba7d50ea211e0f.png"
+        title="在这里插入图片描述" /></p>
+<p>这个问题有多个原因，网上的处理方式一般是不针对数据受损的情况的，如果数据不受损，那么可以直接将<code>dbpath</code>路径下的<code>mongod.lock</code>文件删除（锁文件，不影响实际数据），然后再次使用net start命令启动。</p>
+<p>如果还是不行那么考虑数据受损的情况，那就使用<code>repair</code>命令修复。</p>
+<h5 id="使用repair命令扫描所有的本地数据修复耗时长">使用repair命令，扫描所有的本地数据修复（耗时长）</h5>
+<p><strong>（使用前删除lock文件）</strong></p>
+<p>该命令是MongoDB专门应对数据文件受损的一种修复机制，原理是删除所有搜索的索引和数据文档。所以最好在运行该命令前对数据文件进行备份！</p>
+<p>直接<strong>在MongoDB的bin目录下</strong>运行以下命令：</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-cmd">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cmd" data-lang="cmd"><span class="line"><span class="cl">mongod.exe --dbpath E:\MongoDB\data --repair</span></span></code></pre></div></div>
+<p>该命令会对<code>dbpath</code>中的所有的数据文件进行扫描、检查、索引的重构。如果数据量大的话（尤其是索引很多需要重新构建），时间耗费也会很久。<strong>参考本人千万级别的数据文档，运行了近一天一夜才结束。</strong></p>
+<p>在结束后会详细报告修复的集合。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://i-blog.csdnimg.cn/direct/6ccb9b4c71634ae08fee41dcd742ee73.png"
+        data-srcset="https://i-blog.csdnimg.cn/direct/6ccb9b4c71634ae08fee41dcd742ee73.png, https://i-blog.csdnimg.cn/direct/6ccb9b4c71634ae08fee41dcd742ee73.png 1.5x, https://i-blog.csdnimg.cn/direct/6ccb9b4c71634ae08fee41dcd742ee73.png 2x"
+        data-sizes="auto"
+        alt="https://i-blog.csdnimg.cn/direct/6ccb9b4c71634ae08fee41dcd742ee73.png"
+        title="在这里插入图片描述" /></p>
+<p>最后运行执行启动MongoDB，这次一般都可以顺利进行执行。</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-cmd">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cmd" data-lang="cmd"><span class="line"><span class="cl">net start MongoDB</span></span></code></pre></div></div>
+<p><strong>最后一定不要随便给正在读写的MongoDB数据库意外断开！！</strong></p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2025-09-24</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/mongodb/">MongoDB</a>,&nbsp;<a href="/tags/%E6%95%85%E9%9A%9C/">故障</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/%E5%8D%9A%E5%AE%A2%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E5%90%88%E9%9B%86/" class="prev" rel="prev" title="创建lenBlog容易出现的小问题解决合集"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>创建lenBlog容易出现的小问题解决合集</a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Lennert</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a>
+        </div>
+
+        <div id="fixed-buttons-hidden"><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script src="/lib/autocomplete/autocomplete.min.js"></script><script src="/lib/lunr/lunr.min.js"></script><script src="/lib/lazysizes/lazysizes.min.js"></script><script src="/lib/twemoji/twemoji.min.js"></script><script src="/lib/clipboard/clipboard.min.js"></script><script>window.config={"comment":{},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"lunr"},"twemoji":true};</script><script src="/js/theme.min.js"></script></body>
+</html>

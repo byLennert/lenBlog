@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>创建lenBlog容易出现的小问题解决合集 - LenBlog</title><meta name="Description" content="一个基于 Hugo 的个人博客网站"><meta property="og:url" content="http://localhost:1313/posts/%E5%8D%9A%E5%AE%A2%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E5%90%88%E9%9B%86/">
+  <meta property="og:site_name" content="LenBlog">
+  <meta property="og:title" content="创建lenBlog容易出现的小问题解决合集">
+  <meta property="og:description" content="在创建这个博客的时候遇到了一些问题，随手进行一次记录。配合第一篇博客使用基本可以顺利完成搭建个人博客方便进行使用。
+添加低成本图床（不要用gitee！） 鉴于笔记都是使用markdown完成的，而md文档中的图片都是与文件分离的。默认情况下，文章中插入的图片都被存储于本地的C盘中的Typora的数据文件夹中，如果是本地使用的话也可以更改图片的存储路径为某个其他的文件夹（比如笔记文件夹中的img文件夹）。">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-09-23T12:40:52+08:00">
+    <meta property="article:modified_time" content="2025-09-23T12:40:52+08:00">
+    <meta property="article:tag" content="Hugo">
+    <meta property="article:tag" content="博客">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="创建lenBlog容易出现的小问题解决合集">
+  <meta name="twitter:description" content="在创建这个博客的时候遇到了一些问题，随手进行一次记录。配合第一篇博客使用基本可以顺利完成搭建个人博客方便进行使用。
+添加低成本图床（不要用gitee！） 鉴于笔记都是使用markdown完成的，而md文档中的图片都是与文件分离的。默认情况下，文章中插入的图片都被存储于本地的C盘中的Typora的数据文件夹中，如果是本地使用的话也可以更改图片的存储路径为某个其他的文件夹（比如笔记文件夹中的img文件夹）。">
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site">
+<meta name="referrer" content="no-referrer" /><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://localhost:1313/posts/%E5%8D%9A%E5%AE%A2%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E5%90%88%E9%9B%86/" /><link rel="prev" href="http://localhost:1313/posts/first_post/" /><link rel="next" href="http://localhost:1313/posts/mongodb%E6%95%85%E9%9A%9C%E6%8E%92%E6%9F%A5/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/fontawesome-free/css/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "创建lenBlog容易出现的小问题解决合集",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/localhost:1313\/posts\/%E5%8D%9A%E5%AE%A2%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E5%90%88%E9%9B%86\/"
+        },"genre": "posts","keywords": "Hugo, 博客","wordcount":  1676 ,
+        "url": "http:\/\/localhost:1313\/posts\/%E5%8D%9A%E5%AE%A2%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E5%90%88%E9%9B%86\/","datePublished": "2025-09-23T12:40:52+08:00","dateModified": "2025-09-23T12:40:52+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Lennert"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script>
+          const query = window.matchMedia('(prefers-color-scheme: dark)');
+          function applyTheme() {
+            let theme = window.localStorage?.getItem('theme') || 'auto';
+            let isDark = theme === 'dark' || (theme === 'auto' && query.matches);
+            document.body.setAttribute('theme', isDark? 'dark' : 'light');
+            document.body.setAttribute('cfg-theme', theme);
+          }
+
+          applyTheme();
+          query.addEventListener('change', applyTheme);
+        </script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="LenBlog">LenBlog</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="LenBlog">LenBlog</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">创建lenBlog容易出现的小问题解决合集</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Lennert</a></span>&nbsp;<span class="post-category">included in <a href="/categories/%E6%8A%80%E6%9C%AF%E8%AE%B0%E5%BD%95/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>技术记录</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2025-09-23">2025-09-23</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1676 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;4 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#添加低成本图床不要用gitee">添加低成本图床（不要用gitee！）</a></li>
+        <li><a href="#仅设置giscus评论不生效">仅设置giscus评论不生效</a></li>
+        <li><a href="#在使用git向github推送笔记时有时失败">在使用git向github推送笔记时有时失败</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>在创建这个博客的时候遇到了一些问题，随手进行一次记录。配合第一篇博客使用基本可以顺利完成搭建个人博客方便进行使用。</p>
+<h3 id="添加低成本图床不要用gitee">添加低成本图床（不要用gitee！）</h3>
+<p>鉴于笔记都是使用markdown完成的，而md文档中的图片都是与文件分离的。默认情况下，文章中插入的图片都被存储于本地的C盘中的Typora的数据文件夹中，如果是本地使用的话也可以更改图片的存储路径为某个其他的文件夹（比如笔记文件夹中的img文件夹）。</p>
+<p>然而当我们想要在网页中展示的时候，我们本地的图片是没办法被正常访问的，所以我们需要让图片变成可以被外部应用访问的<strong>外链格式</strong>。</p>
+<blockquote>
+<p>外链：外链（External Link），又称<strong>外部链接</strong>或<strong>导入链接</strong>（Inbound Link），是指<strong>从一个网站指向另一个网站的超链接</strong>。换句话说，外链是<strong>其他网站链接到你网站的链接</strong>，是网站之间互相引用的方式之一。</p></blockquote>
+<p>比如下面这个链接，你复制到浏览器就可以成功地看到对应的图片。为了更加方便地被其他人访问到自己的图片，我们实际上需要一个可以存储图片且可被外网访问的平台，也就是<strong>图床</strong>。</p>
+<blockquote>
+<p><a href="https://www.bing.com/images/search?view=detailV2&amp;ccid=80HkMbP%2f&amp;id=92F7BBD95FA963932859D828DBF03AC2A8913BBE&amp;thid=OIP.80HkMbP_8cPqwsiCGP37vQHaIp&amp;mediaurl=https%3a%2f%2fwww.lixueduan.com%2fimg%2fblog%2fgiscus%2fgiscus-config-json.png&amp;exph=1223&amp;expw=1047&amp;q=hugo%e4%bd%bf%e7%94%a8giscus%e9%83%a8%e5%88%86%e6%96%87%e7%ab%a0%e4%b8%8d%e7%94%9f%e6%95%88&amp;FORM=IRPRST&amp;ck=238D687F1EF742966A9398FD392B52EE&amp;selectedIndex=0&amp;itb=0" target="_blank" rel="noopener noreffer ">https://www.bing.com/images/search?view=detailV2&ccid=80HkMbP%2f&id=92F7BBD95FA963932859D828DBF03AC2A8913BBE&thid=OIP.80HkMbP_8cPqwsiCGP37vQHaIp&mediaurl=https%3a%2f%2fwww.lixueduan.com%2fimg%2fblog%2fgiscus%2fgiscus-config-json.png&exph=1223&expw=1047&q=hugo%e4%bd%bf%e7%94%a8giscus%e9%83%a8%e5%88%86%e6%96%87%e7%ab%a0%e4%b8%8d%e7%94%9f%e6%95%88&FORM=IRPRST&ck=238D687F1EF742966A9398FD392B52EE&selectedIndex=0&itb=0</a></p></blockquote>
+<p>当然，你可以直接花钱去购买知名平台的图床服务，但是今天我们只要更低成本且方便地完成图床的功能。本人也是调研了很多的网页，发现目前最流行的一种低成本图床是使用<code>Gitee</code>作为图片托管平台，将其生成的外链通过<code>PicGo</code>的插件可以放置在<code>Typora</code>的<code>markdown</code>笔记当中。直到2025.9.20依旧有博客推荐这么去做。</p>
+<p>但是，在我按照网上的教程进行操作时候，却在PicGo的插件文档发现了这个提示**：<code>Gitee</code>是不允许将仓库作为个人图床的。**</p>
+<!-- raw HTML omitted -->
+<blockquote>
+<p>图片中对应的issues链接，有些人发现自己的gitee仓库被官方封禁了 <a href="https://github.com/zhanghuid/picgo-plugin-gitee/issues/11" target="_blank" rel="noopener noreffer ">插件失效 · Issue #11 · zhanghuid/picgo-plugin-gitee</a></p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://user-images.githubusercontent.com/82650452/159905511-57e21461-5362-40ae-9589-03bc066129cb.png"
+        data-srcset="https://user-images.githubusercontent.com/82650452/159905511-57e21461-5362-40ae-9589-03bc066129cb.png, https://user-images.githubusercontent.com/82650452/159905511-57e21461-5362-40ae-9589-03bc066129cb.png 1.5x, https://user-images.githubusercontent.com/82650452/159905511-57e21461-5362-40ae-9589-03bc066129cb.png 2x"
+        data-sizes="auto"
+        alt="https://user-images.githubusercontent.com/82650452/159905511-57e21461-5362-40ae-9589-03bc066129cb.png"
+        title="img" /></p></blockquote>
+<p>有人反映自己用于存储图片的gitee仓库被官方封禁了，原因是该仓库中包含了大量的外链访问行为。而恰好人本在之前搭建博客时候也看到了一些文章无法正常显示图片的情况(仅有一个gitee的链接)。后来本人搜索到了官方对于仓库的协议中的确提到禁止个人仓库有大量外链请求。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://i-blog.csdnimg.cn/blog_migrate/92e92d048c869f3d9b504ec5fdadec9b.png"
+        data-srcset="https://i-blog.csdnimg.cn/blog_migrate/92e92d048c869f3d9b504ec5fdadec9b.png, https://i-blog.csdnimg.cn/blog_migrate/92e92d048c869f3d9b504ec5fdadec9b.png 1.5x, https://i-blog.csdnimg.cn/blog_migrate/92e92d048c869f3d9b504ec5fdadec9b.png 2x"
+        data-sizes="auto"
+        alt="https://i-blog.csdnimg.cn/blog_migrate/92e92d048c869f3d9b504ec5fdadec9b.png"
+        title="img" /></p>
+<blockquote>
+<p>不过想来也是，这样白嫖码云的行为很容易被官方察觉，且码云也不像github有微软这样的大公司作为靠山，自然是严令禁止了。而刚刚的issues链接中也有人反映github貌似也开始逐渐有封禁大量外链请求的行为。</p></blockquote>
+<p>所以为了避免自己的辛辛苦苦整理的图片被封禁可能有丢失的风险，强烈建议不再追求完美的免费图床计划（使用代码托管平台作为自己的图床），而是使用低成本的OSS进行图片的存储。</p>
+<h5 id="使用typora--picgo--阿里云oss-搭建图床">使用Typora + PicGo + 阿里云OSS 搭建图床</h5>
+<blockquote>
+<p>费用:money_with_wings:  : 9 元 40GB / 年</p></blockquote>
+<p>图片需要存储在阿里云的OSS对象存储服务中，在Typora记笔记的时候，我们通过Typora的插件PicGo插件可以配置好图片上传的功能。当我们在md文档中复制一个图片时候，就会自动上传到阿里云的OSS中，且图片变为外链的形式可以被访问。</p>
+<p>具体的操作流程推荐官方教程：<a href="https://developer.aliyun.com/article/1465963" target="_blank" rel="noopener noreffer ">手把手教你搭建阿里云图床(PicGo+Typora+阿里云OSS)，新手小白一看就会-阿里云开发者社区</a></p>
+<h3 id="仅设置giscus评论不生效">仅设置giscus评论不生效</h3>
+<p>giscus是github上的一个插件，实际上是利用了github仓库的discussion功能，当我们在文章下面进行评论的时候，实际上也是在github的源代码仓库中进行评论。</p>
+<p>所以想要使用该插件的评论功能必须要配置两个地方：</p>
+<ul>
+<li>github源代码仓库的discussion功能的开启</li>
+<li>giscus插件的设置</li>
+</ul>
+<p>最后在我们的Hugo对应的配置文件<code>hugo.toml</code>文件中完成即可。具体操作细致的操作流程可以参考这个文章：<a href="https://zhuanlan.zhihu.com/p/642438343" target="_blank" rel="noopener noreffer ">(1 封私信 / 10 条消息) Hugo 的 LoveIt 主题添加 Giscus 评论 - 知乎</a></p>
+<h3 id="在使用git向github推送笔记时有时失败">在使用git向github推送笔记时有时失败</h3>
+<p>这种问题一般是因为代理没有设置好，特别是本机开启了梯子，但是git工具没有设置相关的代理，导致git其实并没有走代理，一般输入以下命令设置代理即可</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-git">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><pre tabindex="0"><code class="language-git" data-lang="git">git config --global http.proxy
+git config --global https.proxy
+# 也可以向上面一样，提前运行以下查看是否有别的代理
+git config --global http.proxy 127.0.0.1:7890
+git config --global https.proxy 127.0.0.1:7890</code></pre></div>
+<p>最后的7890看你代理走的是哪个端口，clash的话默认就是7890</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2025-09-23</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/hugo/">Hugo</a>,&nbsp;<a href="/tags/%E5%8D%9A%E5%AE%A2/">博客</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/first_post/" class="prev" rel="prev" title="利用Hugo搭建个人博客【极低成本&#43;省运维】"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>利用Hugo搭建个人博客【极低成本+省运维】</a>
+            <a href="/posts/mongodb%E6%95%85%E9%9A%9C%E6%8E%92%E6%9F%A5/" class="next" rel="next" title="MongoDB错误处理【1053】【1067】（意外断开读写中的数据库）">MongoDB错误处理【1053】【1067】（意外断开读写中的数据库）<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Lennert</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a>
+        </div>
+
+        <div id="fixed-buttons-hidden"><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script src="/lib/autocomplete/autocomplete.min.js"></script><script src="/lib/lunr/lunr.min.js"></script><script src="/lib/lazysizes/lazysizes.min.js"></script><script src="/lib/twemoji/twemoji.min.js"></script><script src="/lib/clipboard/clipboard.min.js"></script><script>window.config={"comment":{},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"lunr"},"twemoji":true};</script><script src="/js/theme.min.js"></script></body>
+</html>

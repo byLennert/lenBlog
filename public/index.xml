@@ -1,19 +1,37 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>LenBlog</title>
-        <link>http://example.org/</link>
-        <description>记录技术和成长的知识</description>
+        <link>http://localhost:1313/</link>
+        <description>一个基于 Hugo 的个人博客网站</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>1416679017@qq.com (Lennert)</managingEditor>
-            <webMaster>1416679017@qq.com (Lennert)</webMaster><lastBuildDate>Tue, 23 Sep 2025 12:40:52 &#43;0800</lastBuildDate>
-            <atom:link href="http://example.org/index.xml" rel="self" type="application/rss+xml" />
+            <webMaster>1416679017@qq.com (Lennert)</webMaster><lastBuildDate>Wed, 24 Sep 2025 15:50:21 &#43;0800</lastBuildDate>
+            <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
         <item>
-    <title>First_post</title>
-    <link>http://example.org/posts/first_post/</link>
+    <title>MongoDB错误处理【1053】【1067】（意外断开读写中的数据库）</title>
+    <link>http://localhost:1313/posts/mongodb%E6%95%85%E9%9A%9C%E6%8E%92%E6%9F%A5/</link>
+    <pubDate>Wed, 24 Sep 2025 15:50:21 &#43;0800</pubDate>
+    <author>1416679017@qq.com (Lennert)</author>
+    <guid>http://localhost:1313/posts/mongodb%E6%95%85%E9%9A%9C%E6%8E%92%E6%9F%A5/</guid>
+    <description><![CDATA[<p><strong>摘要：</strong> 本文记录了Windows服务器因意外断电导致MongoDB服务无法启动的解决方案。主要处理了两个错误：1053错误（通过删除并重建MongoDB服务解决）和1067错误（通过修复受损数据文件解决）。重点介绍了使用repair命令修复数据的方法，该过程可能耗时较长（千万级数据需近一天）。最后强调在数据库读写过程中切勿随意断开连接，以免造成数据损坏。解决方案同样适用于Linux系统。</p>]]></description>
+</item>
+<item>
+    <title>创建lenBlog容易出现的小问题解决合集</title>
+    <link>http://localhost:1313/posts/%E5%8D%9A%E5%AE%A2%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E5%90%88%E9%9B%86/</link>
     <pubDate>Tue, 23 Sep 2025 12:40:52 &#43;0800</pubDate>
     <author>1416679017@qq.com (Lennert)</author>
-    <guid>http://example.org/posts/first_post/</guid>
-    <description><![CDATA[<h1 id="我的第一篇博客">我的第一篇博客</h1>
-<p>![【哲风壁纸】2024-11-03 16_01_09](C:\Users\14166\Pictures\【哲风壁纸】2024-11-03 16_01_09.png)</p>]]></description>
+    <guid>http://localhost:1313/posts/%E5%8D%9A%E5%AE%A2%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E5%90%88%E9%9B%86/</guid>
+    <description><![CDATA[<p>在创建这个博客的时候遇到了一些问题，随手进行一次记录。配合第一篇博客使用基本可以顺利完成搭建个人博客方便进行使用。</p>
+<h3 id="添加低成本图床不要用gitee">添加低成本图床（不要用gitee！）</h3>
+<p>鉴于笔记都是使用markdown完成的，而md文档中的图片都是与文件分离的。默认情况下，文章中插入的图片都被存储于本地的C盘中的Typora的数据文件夹中，如果是本地使用的话也可以更改图片的存储路径为某个其他的文件夹（比如笔记文件夹中的img文件夹）。</p>]]></description>
+</item>
+<item>
+    <title>利用Hugo搭建个人博客【极低成本&#43;省运维】</title>
+    <link>http://localhost:1313/posts/first_post/</link>
+    <pubDate>Tue, 23 Sep 2025 12:40:52 &#43;0800</pubDate>
+    <author>1416679017@qq.com (Lennert)</author>
+    <guid>http://localhost:1313/posts/first_post/</guid>
+    <description><![CDATA[<blockquote>
+<p>很久以前本人其实搭建过一个博客，服务器域名等等应有尽有，但是无奈写个笔记还得很很繁琐地进行更新，而且服务器次年续费真的好贵！所以现在搭建的新的博客不需要任何的服务器，而且写完笔记更新到网站也不需要自己操作，直接一键更新！</p>]]></description>
 </item>
 </channel>
 </rss>

@@ -10,11 +10,16 @@ languageCode = "zh-CN"
 
 # 语言名称，用于展示
 languageName = "中文"
+# 允许被爬取
+enableRobotsTXT = true
 
 # 是否启用 CJK（中日韩）语言支持
 hasCJKLanguage = true
 description = "一个基于 Hugo 的个人博客网站"
-
+[sitemap]
+  changeFreq = 'always'
+  filename = 'sitemap.xml'
+  priority = 1
 # 导航菜单配置
 [menu]
   [[menu.main]]

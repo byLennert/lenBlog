@@ -1,0 +1,17 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>教程 - Tag - LenBlog</title>
+        <link>http://localhost:1313/tags/%E6%95%99%E7%A8%8B/</link>
+        <description>教程 - Tag - LenBlog</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>1416679017@qq.com (Lennert)</managingEditor>
+            <webMaster>1416679017@qq.com (Lennert)</webMaster><lastBuildDate>Tue, 23 Sep 2025 12:40:52 &#43;0800</lastBuildDate><atom:link href="http://localhost:1313/tags/%E6%95%99%E7%A8%8B/" rel="self" type="application/rss+xml" /><item>
+    <title>利用Hugo搭建个人博客【极低成本&#43;省运维】</title>
+    <link>http://localhost:1313/posts/first_post/</link>
+    <pubDate>Tue, 23 Sep 2025 12:40:52 &#43;0800</pubDate>
+    <author>1416679017@qq.com (Lennert)</author>
+    <guid>http://localhost:1313/posts/first_post/</guid>
+    <description><![CDATA[<blockquote>
+<p>很久以前本人其实搭建过一个博客，服务器域名等等应有尽有，但是无奈写个笔记还得很很繁琐地进行更新，而且服务器次年续费真的好贵！所以现在搭建的新的博客不需要任何的服务器，而且写完笔记更新到网站也不需要自己操作，直接一键更新！</p>]]></description>
+</item>
+</channel>
+</rss>
