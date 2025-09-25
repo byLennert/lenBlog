@@ -94,7 +94,7 @@ description = "一个基于 Hugo 的个人博客网站"
   [params.footer]
     enable = true
     custom = ""
-    hugo = false
+    hugo = true
     copyright = true
     author = true
     since = 2024
