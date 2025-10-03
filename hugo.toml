@@ -146,7 +146,7 @@ description = "一个基于 Hugo 的个人博客网站"
     [params.home.profile]
       enable = true
       gravatarEmail = ""
-      avatarURL = "https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAECsB9o1OEBOi8TJ3Uk_t22CmnMh5eKngAC2B8AAttgqVaWRFXDtVz5hjYE.png"
+      avatarURL = "https://picgo-lenblog.oss-cn-beijing.aliyuncs.com/lenblog/lenPic.png"
       title = ""
       subtitle = "人似秋鸿来有信，事如春梦了无痕"
       typeit = true
