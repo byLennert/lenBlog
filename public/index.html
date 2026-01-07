@@ -110,29 +110,88 @@
         data-srcset="https://picgo-lenblog.oss-cn-beijing.aliyuncs.com/lenblog/lenPic.png, https://picgo-lenblog.oss-cn-beijing.aliyuncs.com/lenblog/lenPic.png 1.5x, https://picgo-lenblog.oss-cn-beijing.aliyuncs.com/lenblog/lenPic.png 2x"
         data-sizes="auto"
         alt="https://picgo-lenblog.oss-cn-beijing.aliyuncs.com/lenblog/lenPic.png"
-        title="https://picgo-lenblog.oss-cn-beijing.aliyuncs.com/lenblog/lenPic.png" /></a></div><div class="home-subtitle"><div id="id-1" class="typeit"></div></div><div class="links"></div></div>
+        title="https://picgo-lenblog.oss-cn-beijing.aliyuncs.com/lenblog/lenPic.png" /></a></div><div class="home-subtitle"><div id="id-1" class="typeit"></div></div><div class="links"><a href="https://github.com/https://github.com/byLennert?tab=repositories" title="GitHub" target="_blank" rel="noopener noreffer me"><i class="fab fa-github fa-fw" aria-hidden="true"></i></a></div></div>
 <article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
-        <a href="/posts/mongodb%E6%95%85%E9%9A%9C%E6%8E%92%E6%9F%A5/">MongoDB错误处理【1053】【1067】（意外断开读写中的数据库）</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Lennert</a></span>&nbsp;<span class="post-publish">published on <time datetime="2025-09-24">2025-09-24</time></span>&nbsp;<span class="post-category">included in <a href="/categories/%E6%95%85%E9%9A%9C%E6%8E%92%E6%9F%A5/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>故障排查</a></span></div><div class="content"><p><strong>摘要：</strong> 本文记录了Windows服务器因意外断电导致MongoDB服务无法启动的解决方案。主要处理了两个错误：1053错误（通过删除并重建MongoDB服务解决）和1067错误（通过修复受损数据文件解决）。重点介绍了使用repair命令修复数据的方法，该过程可能耗时较长（千万级数据需近一天）。最后强调在数据库读写过程中切勿随意断开连接，以免造成数据损坏。解决方案同样适用于Linux系统。</p></div><div class="post-footer">
-        <a href="/posts/mongodb%E6%95%85%E9%9A%9C%E6%8E%92%E6%9F%A5/">Read More</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/mongodb/">MongoDB</a>,&nbsp;<a href="/tags/%E6%95%85%E9%9A%9C/">故障</a></div></div>
+        <a href="/posts/%E6%8E%92%E6%9F%A5linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%A0%B9%E7%9B%AE%E5%BD%95%E7%A9%BA%E9%97%B4%E6%BB%A1%E7%9A%84%E9%97%AE%E9%A2%98/">排查linux服务器根目录空间满的问题</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Lennert</a></span>&nbsp;<span class="post-publish">published on <time datetime="2026-01-07">2026-01-07</time></span>&nbsp;<span class="post-category">included in <a href="/categories/%E6%95%85%E9%9A%9C%E6%8E%92%E6%9F%A5/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>故障排查</a></span></div><div class="content"><h2 id="清理linux服务器根目录空间">清理linux服务器根目录空间</h2>
+<p>现象：代码无法复制到新文件，创建的新文件无法正常写入内容，大小保存后为0kb。无法上传新的文件。这说明根目录磁盘空间满了。</p>
+<h3 id="排查步骤">排查步骤</h3>
+<p>检查是否确实根目录空间满：</p></div><div class="post-footer">
+        <a href="/posts/%E6%8E%92%E6%9F%A5linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%A0%B9%E7%9B%AE%E5%BD%95%E7%A9%BA%E9%97%B4%E6%BB%A1%E7%9A%84%E9%97%AE%E9%A2%98/">Read More</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/linux/">Linux</a>,&nbsp;<a href="/tags/%E6%B8%85%E7%90%86%E7%A9%BA%E9%97%B4/">清理空间</a></div></div>
 </article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
-        <a href="/posts/%E5%8D%9A%E5%AE%A2%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E5%90%88%E9%9B%86/">创建lenBlog容易出现的小问题解决合集</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Lennert</a></span>&nbsp;<span class="post-publish">published on <time datetime="2025-09-23">2025-09-23</time></span>&nbsp;<span class="post-category">included in <a href="/categories/%E6%8A%80%E6%9C%AF%E8%AE%B0%E5%BD%95/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>技术记录</a></span></div><div class="content"><p>在创建这个博客的时候遇到了一些问题，随手进行一次记录。配合第一篇博客使用基本可以顺利完成搭建个人博客方便进行使用。</p>
-<h3 id="添加低成本图床不要用gitee">添加低成本图床（不要用gitee！）</h3>
-<p>鉴于笔记都是使用markdown完成的，而md文档中的图片都是与文件分离的。默认情况下，文章中插入的图片都被存储于本地的C盘中的Typora的数据文件夹中，如果是本地使用的话也可以更改图片的存储路径为某个其他的文件夹（比如笔记文件夹中的img文件夹）。</p></div><div class="post-footer">
-        <a href="/posts/%E5%8D%9A%E5%AE%A2%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E5%90%88%E9%9B%86/">Read More</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/hugo/">Hugo</a>,&nbsp;<a href="/tags/%E5%8D%9A%E5%AE%A2/">博客</a></div></div>
+        <a href="/posts/2025%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93-ds/">我的2025：在高压、自省与觉醒中穿行</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Lennert</a></span>&nbsp;<span class="post-publish">published on <time datetime="2026-01-02">2026-01-02</time></span>&nbsp;<span class="post-category">included in <a href="/categories/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>年度总结</a></span></div><div class="content"><blockquote>
+<p>一份写给自己的年度总结，一次与可靠伙伴的坦诚分享</p></blockquote>
+<h2 id="一-迟来的开篇">一、 迟来的开篇</h2>
+<p>今天是<strong>1.2</strong>，本来想<strong>1.1</strong>写的——稍微偷懒一天。</p>
+<hr>
+<h2 id="二-年度回顾一场高投入与低成就感的拉锯战">二、 年度回顾：一场高投入与低成就感的拉锯战</h2>
+<h3 id="1-高压的序曲">1. 高压的序曲</h3>
+<ul>
+<li><strong>2025年的新年</strong>过得<strong>胆战心惊</strong>。刚过年就回学校琢磨项目的方案，被狠狠<strong>压力push</strong>。</li>
+<li>接下来的几个月都是如此的强度。项目在<strong>7-8月份交付</strong>，前面几个月都在进行<strong>双周会议</strong>，<strong>压力拉满</strong>。</li>
+<li>中期检查去了趟<strong>苏州</strong>，体验南方的风景，算是今年一个<strong>额外的小收获</strong>。</li>
+</ul>
+<h3 id="2-消失的暑假与漫长的收尾">2. 消失的暑假与漫长的收尾</h3>
+<ul>
+<li><strong>7-8月的暑假</strong>实际上和没放差不多。放假但依旧<strong>熬夜</strong>，心头压着组会和双周会议。</li>
+<li>没见到朋友，没回老家。时间错开，回家反而不如在学校舒服。</li>
+<li><strong>9月</strong>返校，项目进入完结阶段。终于结束了<strong>长达半年的双周会议</strong>，开始“摸鱼”……直到年底。</li>
+<li>实际上，交付后的几个月仍在<strong>弥补之前未完成的工作</strong>。</li>
+</ul>
+<h3 id="3-核心矛盾的浮现">3. 核心矛盾的浮现</h3>
+<blockquote>
+<p>项目是好项目，但方案是被逼出来的，没什么好效果。数值好看只因场景特殊，<strong>并无实际价值</strong>。</p></div><div class="post-footer">
+        <a href="/posts/2025%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93-ds/">Read More</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93/">年度总结</a></div></div>
 </article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
-        <a href="/posts/first_post/">利用Hugo搭建个人博客【极低成本+省运维】</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Lennert</a></span>&nbsp;<span class="post-publish">published on <time datetime="2025-09-23">2025-09-23</time></span>&nbsp;<span class="post-category">included in <a href="/categories/%E6%8A%80%E6%9C%AF%E8%AE%B0%E5%BD%95/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>技术记录</a></span></div><div class="content"><blockquote>
-<p>很久以前本人其实搭建过一个博客，服务器域名等等应有尽有，但是无奈写个笔记还得很很繁琐地进行更新，而且服务器次年续费真的好贵！所以现在搭建的新的博客不需要任何的服务器，而且写完笔记更新到网站也不需要自己操作，直接一键更新！</p></div><div class="post-footer">
-        <a href="/posts/first_post/">Read More</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/hugo/">Hugo</a>,&nbsp;<a href="/tags/%E5%8D%9A%E5%AE%A2/">博客</a>,&nbsp;<a href="/tags/%E6%95%99%E7%A8%8B/">教程</a></div></div>
-</article></div></div>
+        <a href="/posts/%E6%9C%89%E9%99%90%E7%8A%B6%E6%80%81%E6%9C%BA/">LCR 138. 有效数字</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Lennert</a></span>&nbsp;<span class="post-publish">published on <time datetime="2025-12-20">2025-12-20</time></span>&nbsp;<span class="post-category">included in <a href="/categories/%E7%AE%97%E6%B3%95%E9%A2%98/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>算法题</a></span></div><div class="content"><p>力扣题目：https://leetcode.cn/problems/biao-shi-shu-zhi-de-zi-fu-chuan-lcof/description/?envType=study-plan-v2&amp;envId=coding-interviews</p></div><div class="post-footer">
+        <a href="/posts/%E6%9C%89%E9%99%90%E7%8A%B6%E6%80%81%E6%9C%BA/">Read More</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/%E6%9C%89%E9%99%90%E7%8A%B6%E6%80%81%E6%9C%BA/">有限状态机</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
+        <a href="/posts/%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8%E5%85%A5%E5%8F%A3/">环形链表入口</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Lennert</a></span>&nbsp;<span class="post-publish">published on <time datetime="2025-12-20">2025-12-20</time></span>&nbsp;<span class="post-category">included in <a href="/categories/%E7%AE%97%E6%B3%95%E9%A2%98/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>算法题</a></span></div><div class="content"><p><strong>环形链表的快慢指针相遇问题：</strong></p>
+<p>力扣链接：https://leetcode.cn/problems/linked-list-cycle-ii/</p>
+<p>给定一个链表的头节点  <code>head</code> ，返回链表开始入环的第一个节点。 如果链表无环，则返回 <code>null</code>。
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://i-blog.csdnimg.cn/direct/ee1b0a1e566a4af78525a82d66db61ec.png"
+        data-srcset="https://i-blog.csdnimg.cn/direct/ee1b0a1e566a4af78525a82d66db61ec.png, https://i-blog.csdnimg.cn/direct/ee1b0a1e566a4af78525a82d66db61ec.png 1.5x, https://i-blog.csdnimg.cn/direct/ee1b0a1e566a4af78525a82d66db61ec.png 2x"
+        data-sizes="auto"
+        alt="https://i-blog.csdnimg.cn/direct/ee1b0a1e566a4af78525a82d66db61ec.png"
+        title="在这里插入图片描述" /></p></div><div class="post-footer">
+        <a href="/posts/%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8%E5%85%A5%E5%8F%A3/">Read More</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8/">环形链表</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
+        <a href="/posts/%E7%AE%97%E6%B3%95%E9%A2%98/">leecode Hot100 学习记录</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Lennert</a></span>&nbsp;<span class="post-publish">published on <time datetime="2025-12-09">2025-12-09</time></span>&nbsp;<span class="post-category">included in <a href="/categories/%E7%AE%97%E6%B3%95%E9%A2%98/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>算法题</a></span></div><div class="content"><h3 id="前缀和">前缀和</h3>
+<blockquote>
+<p><strong>不单调数组求任意子数组和</strong></p></blockquote>
+<p>前缀和概念和数列前n项和的概念很像，但是不包含最后一项（左闭右开），模版来自<a href="https://leetcode.cn/problems/range-sum-query-immutable/" target="_blank" rel="noopener noreffer ">303. 区域和检索 - 数组不可变 - 力扣（LeetCode）</a></p></div><div class="post-footer">
+        <a href="/posts/%E7%AE%97%E6%B3%95%E9%A2%98/">Read More</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/%E5%89%8D%E7%BC%80%E5%92%8C/">前缀和</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
+        <a href="/posts/%E5%8C%BB%E4%BF%9D%E4%B8%8E%E5%85%AC%E8%B4%B9%E5%8C%BB%E7%96%97/">医保与公费医疗</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Lennert</a></span>&nbsp;<span class="post-publish">published on <time datetime="2025-12-07">2025-12-07</time></span>&nbsp;<span class="post-category">included in <a href="/categories/%E4%B8%AA%E4%BA%BA%E5%A4%87%E5%BF%98/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>个人备忘</a></span></div><div class="content"><blockquote>
+<p>转自本人飞书知识库 <a href="https://ai.feishu.cn/wiki/X5KCwQ0PliAMtjkyqo2cy0tLn2c?from=from_copylink" target="_blank" rel="noopener noreffer ">https://ai.feishu.cn/wiki/X5KCwQ0PliAMtjkyqo2cy0tLn2c?from=from_copylink</a></p></blockquote>
+<p>虽然在学校呆了五六年了但不经常来医院，对医保和公费医疗有点分不清楚，最近几日和八月一起去医院，对看病流程稍微清晰了点，之前学校也没有主动宣传怎么正确使用大学生基本医保和公费医疗报销，结合最近去苏家屯中心医院看病时候询问的流程，这里进行一些总结。</p></div><div class="post-footer">
+        <a href="/posts/%E5%8C%BB%E4%BF%9D%E4%B8%8E%E5%85%AC%E8%B4%B9%E5%8C%BB%E7%96%97/">Read More</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/%E7%94%9F%E6%B4%BB/">生活</a></div></div>
+</article><ul class="pagination"><li class="page-item active">
+                    <span class="page-link">
+                        <a href="/">1</a>
+                    </span>
+                </li><li class="page-item ">
+                    <span class="page-link">
+                        <a href="/page/2/">2</a>
+                    </span>
+                </li></ul></div></div>
             </main><footer class="footer">
         <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.145.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.3.1-DEV"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
-                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Lennert</a></span></div>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024 - 2026</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Lennert</a></span></div>
         </div>
     </footer></div>
 
@@ -144,5 +203,5 @@
         <div id="fixed-buttons-hidden"><a href="#" id="view-comments" class="fixed-button" title="View Comments">
                 <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
             </a>
-        </div><script src="/lib/autocomplete/autocomplete.min.js"></script><script src="/lib/lunr/lunr.min.js"></script><script src="/lib/lazysizes/lazysizes.min.js"></script><script src="/lib/twemoji/twemoji.min.js"></script><script src="/lib/clipboard/clipboard.min.js"></script><script src="/lib/typeit/index.umd.js"></script><script>window.config={"data":{"id-1":"人似秋鸿来有信，事如春梦了无痕"},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"lunr"},"twemoji":true,"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"]},"duration":-1,"speed":100}};</script><script src="/js/theme.min.js"></script></body>
+        </div><link rel="stylesheet" href="/css/_custom.scss"><script src="/lib/autocomplete/autocomplete.min.js"></script><script src="/lib/lunr/lunr.min.js"></script><script src="/lib/lazysizes/lazysizes.min.js"></script><script src="/lib/twemoji/twemoji.min.js"></script><script src="/lib/clipboard/clipboard.min.js"></script><script src="/lib/typeit/index.umd.js"></script><script>window.config={"data":{"id-1":"人似秋鸿来有信，事如春梦了无痕"},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"lunr"},"twemoji":true,"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"]},"duration":-1,"speed":150}};</script><script src="/js/theme.min.js"></script></body>
 </html>

@@ -158,7 +158,7 @@ description = "一个基于 Hugo 的个人博客网站"
 
   # 社交链接配置
   [params.social]
-    GitHub = ""
+    GitHub = "https://github.com/byLennert?tab=repositories"
     Email = ""
     Phone = ""
     RSS = ""
@@ -237,6 +237,7 @@ description = "一个基于 Hugo 的个人博客网站"
 
     [params.page.library]
       [params.page.library.css]
+        custom = "css/_custom.scss"
         # someCSS = "some.css"
         # 位于 "assets/" 目录下
         # 或者使用 CDN 链接
@@ -255,7 +256,7 @@ description = "一个基于 Hugo 的个人博客网站"
 
   # TypeIt 打字动画配置
   [params.typeit]
-    speed = 100
+    speed = 150
     cursorSpeed = 1000
     cursorChar = "|"
     duration = -1

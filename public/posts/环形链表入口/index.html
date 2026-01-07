@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>环形链表入口 - LenBlog</title><meta name="Description" content="一个基于 Hugo 的个人博客网站"><meta property="og:url" content="http://localhost:1313/posts/%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8%E5%85%A5%E5%8F%A3/">
+  <meta property="og:site_name" content="LenBlog">
+  <meta property="og:title" content="环形链表入口">
+  <meta property="og:description" content="环形链表的快慢指针相遇问题：
+力扣链接：https://leetcode.cn/problems/linked-list-cycle-ii/
+给定一个链表的头节点 head ，返回链表开始入环的第一个节点。 如果链表无环，则返回 null。">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-12-20T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-12-20T00:00:00+00:00">
+    <meta property="article:tag" content="环形链表">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="环形链表入口">
+  <meta name="twitter:description" content="环形链表的快慢指针相遇问题：
+力扣链接：https://leetcode.cn/problems/linked-list-cycle-ii/
+给定一个链表的头节点 head ，返回链表开始入环的第一个节点。 如果链表无环，则返回 null。">
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site">
+<meta name="referrer" content="no-referrer" /><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://localhost:1313/posts/%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8%E5%85%A5%E5%8F%A3/" /><link rel="prev" href="http://localhost:1313/posts/%E7%AE%97%E6%B3%95%E9%A2%98/" /><link rel="next" href="http://localhost:1313/posts/%E6%9C%89%E9%99%90%E7%8A%B6%E6%80%81%E6%9C%BA/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/fontawesome-free/css/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "环形链表入口",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/localhost:1313\/posts\/%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8%E5%85%A5%E5%8F%A3\/"
+        },"genre": "posts","keywords": "环形链表","wordcount":  1937 ,
+        "url": "http:\/\/localhost:1313\/posts\/%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8%E5%85%A5%E5%8F%A3\/","datePublished": "2025-12-20T00:00:00+00:00","dateModified": "2025-12-20T00:00:00+00:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Lennert"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script>
+          const query = window.matchMedia('(prefers-color-scheme: dark)');
+          function applyTheme() {
+            let theme = window.localStorage?.getItem('theme') || 'auto';
+            let isDark = theme === 'dark' || (theme === 'auto' && query.matches);
+            document.body.setAttribute('theme', isDark? 'dark' : 'light');
+            document.body.setAttribute('cfg-theme', theme);
+          }
+
+          applyTheme();
+          query.addEventListener('change', applyTheme);
+        </script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="LenBlog"><span class="header-title-pre"><img src="https://picgo-lenblog.oss-cn-beijing.aliyuncs.com/lenblog/lenLOGO.png" alt="" style="width: 40px; height: 40px;vertical-align: middle;margin-top: -8px;"></span>LenBlog</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="LenBlog"><span class="header-title-pre"><img src="https://picgo-lenblog.oss-cn-beijing.aliyuncs.com/lenblog/lenLOGO.png" alt="" style="width: 40px; height: 40px;vertical-align: middle;margin-top: -8px;"></span>LenBlog</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">环形链表入口</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Lennert</a></span>&nbsp;<span class="post-category">included in <a href="/categories/%E7%AE%97%E6%B3%95%E9%A2%98/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>算法题</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2025-12-20">2025-12-20</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1937 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;4 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents"></nav></div>
+            </div><div class="content" id="content"><p><strong>环形链表的快慢指针相遇问题：</strong></p>
+<p>力扣链接：https://leetcode.cn/problems/linked-list-cycle-ii/</p>
+<p>给定一个链表的头节点  <code>head</code> ，返回链表开始入环的第一个节点。 如果链表无环，则返回 <code>null</code>。
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://i-blog.csdnimg.cn/direct/ee1b0a1e566a4af78525a82d66db61ec.png"
+        data-srcset="https://i-blog.csdnimg.cn/direct/ee1b0a1e566a4af78525a82d66db61ec.png, https://i-blog.csdnimg.cn/direct/ee1b0a1e566a4af78525a82d66db61ec.png 1.5x, https://i-blog.csdnimg.cn/direct/ee1b0a1e566a4af78525a82d66db61ec.png 2x"
+        data-sizes="auto"
+        alt="https://i-blog.csdnimg.cn/direct/ee1b0a1e566a4af78525a82d66db61ec.png"
+        title="在这里插入图片描述" /></p>
+<p>如果是这个链表，我们需要返回2号节点。</p>
+<p>这道题目的做法就是快慢指针法，慢指针每次只走一个节点，快指针的速度是慢指针的两倍，快指针走两个节点。</p>
+<p>环的存在会导致快慢指针进到圈后，快指针追上慢指针（快慢指针在环中相遇）。</p>
+<blockquote>
+<p>Floyd算法：慢指针每次走一步，快是慢的两倍，当快和慢在环里相遇的时候，从起点出发的头指针和从相遇点出发的慢指针一样的速度一起同步走，再次和慢相遇就是在环的入口处。</p></blockquote>
+<p><strong>一句话总结就是慢指针进到环形圈里后，慢指针还没走完一圈就会被快指针追上，就会有一个相遇点。而恰好 从链表起始位置到环入口的距离  就等于  从相遇点继续走到环入口的距离 （或者前者等于 后者+ 圈数*n）。这时候只需要两个慢指针（只要每次都走一步就行），一个从起始位置，另一个从相遇点，同步一起走，一定会在环入口相遇！</strong></p>
+<blockquote>
+<p>以下说的距离都是按照 指针走的方向 （顺时针）走的距离</p></blockquote>
+<p><strong>整个过程需要明白的几个关键点如下</strong>：</p>
+<ol>
+<li>慢指针从起始位置走到环入口处，快指针已在环中某位置。</li>
+<li>快指针追赶慢指针直到相遇。</li>
+<li>起始位置指针与慢指针同步走，一定在环入口相遇。</li>
+</ol>
+<p>这里我们详细展开，当<strong>慢指针刚走到入口</strong>的时候（我们假设慢指针从开始走到入口走了 L 步）：</p>
+<p>已知快指针比慢指针多走了  L  步，所以快指针初始的位置（Fast0点）应该距离入口点（Slow0点）距离 L 步。</p>
+<blockquote>
+<p>慢指针走 n步，快指针走2n步，快只比慢多走n步。</p>
+<p>接下来，只盯着慢指针看，慢指针进到环中，会在第一圈就被快指针追上，这个点就是快慢的相遇点。
+快指针在圈里追慢指针，一定不会让慢指针跑完一整圈。也就是说，慢指针在进入圈内的时候，会在完成一圈之前就被快指针抓住。所以在慢指针进圈之后，不需要假设他们追及n圈。
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://i-blog.csdnimg.cn/direct/ea52a0238ef144a08122c105ba71cb42.png"
+        data-srcset="https://i-blog.csdnimg.cn/direct/ea52a0238ef144a08122c105ba71cb42.png, https://i-blog.csdnimg.cn/direct/ea52a0238ef144a08122c105ba71cb42.png 1.5x, https://i-blog.csdnimg.cn/direct/ea52a0238ef144a08122c105ba71cb42.png 2x"
+        data-sizes="auto"
+        alt="https://i-blog.csdnimg.cn/direct/ea52a0238ef144a08122c105ba71cb42.png"
+        title="在这里插入图片描述" /></p></blockquote>
+<p><strong>核心在于快追慢的过程</strong>：快指针的速度是慢指针的两倍，那么快指针想要追上慢指针，<strong>慢指针每回合走一步，快指针就走两步，快指针就会离慢进一步</strong>，所以此时<strong>快到慢指针之间的距离</strong>（慢刚到达环入口时候）就是快指针追上慢指针需要的回合数，这恰好也是<strong>慢指针进入环中走的距离</strong>。（慢指针每回合走一步，回合数也刚好等于慢指针走的步数）
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://i-blog.csdnimg.cn/direct/9031123e5538430c991b0bc15ef01147.png"
+        data-srcset="https://i-blog.csdnimg.cn/direct/9031123e5538430c991b0bc15ef01147.png, https://i-blog.csdnimg.cn/direct/9031123e5538430c991b0bc15ef01147.png 1.5x, https://i-blog.csdnimg.cn/direct/9031123e5538430c991b0bc15ef01147.png 2x"
+        data-sizes="auto"
+        alt="https://i-blog.csdnimg.cn/direct/9031123e5538430c991b0bc15ef01147.png"
+        title="在这里插入图片描述" /></p>
+<p>如图可以看到，我们能够直到<strong>慢指针最终在环中走到相遇点的距离</strong>是<code>环周长- L</code>，那么从相遇点再走<code>L</code>就可以再次到达入口点，这段距离是 <code>L</code> ，恰好也是<strong>从链表起始点到环形入口点的距离</strong>。
+所以此时我们从起始位置和相遇点一起<strong>同步走</strong>（每次一步），就一定可以刚好<strong>在环入口的位置</strong>相遇。那么我们就可以使用判断条件得到环入口的位置了。
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://i-blog.csdnimg.cn/direct/8d143ff3152f43549c99d9c49665aa6f.png"
+        data-srcset="https://i-blog.csdnimg.cn/direct/8d143ff3152f43549c99d9c49665aa6f.png, https://i-blog.csdnimg.cn/direct/8d143ff3152f43549c99d9c49665aa6f.png 1.5x, https://i-blog.csdnimg.cn/direct/8d143ff3152f43549c99d9c49665aa6f.png 2x"
+        data-sizes="auto"
+        alt="https://i-blog.csdnimg.cn/direct/8d143ff3152f43549c99d9c49665aa6f.png"
+        title="在这里插入图片描述" /></p>
+<p>其实上面这种情况只是其中的一种好理解的情况，没什么变化容易理解，当这个可以理解之后，另一种情况也就没什么难度了。
+为了让问题更加清晰的展示，实际上可以分为两种情况：</p>
+<ul>
+<li>一种是环形周长很大，而前半部分（从开始到入口处）很短，这样当慢指针走到环形圈入口时候，快指针在环形圈中也不会走满一圈。（我们刚刚的过程就是这个情况）</li>
+</ul>
+<blockquote>
+<p>最终结果就是 <strong>从链表起始位置到环入口的距离</strong>  就等于  <strong>从相遇点继续走到环入口的距离</strong></p></blockquote>
+<p>● 一种是环形周长很小，而前半部分很长，这样当慢指针走到环形入口时候，快指针已经走了好多圈了。（接下来描述的情况）</p>
+<blockquote>
+<p>最终结果就是 <strong>从链表起始位置到环入口的距离</strong>  就等于  <strong>从相遇点继续走到环入口的距离 + n*圈长</strong></p></blockquote>
+<p>当环周长小于前半部分的时候：快指针会多走几圈，然后慢指针才到达入口处。这个圈数无关紧要，我们只需要知道起始位置到环入口的距离 L = r + nd（走了很多圈后最后一圈从起点再走r步长）
+同样地，还是将相遇点作为研究的位置进行计算。这里我就偷懒使用b站一个up的手绘图来进行描述。
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://i-blog.csdnimg.cn/direct/ff6ee68ef3b244dab64399299b7f6207.png"
+        data-srcset="https://i-blog.csdnimg.cn/direct/ff6ee68ef3b244dab64399299b7f6207.png, https://i-blog.csdnimg.cn/direct/ff6ee68ef3b244dab64399299b7f6207.png 1.5x, https://i-blog.csdnimg.cn/direct/ff6ee68ef3b244dab64399299b7f6207.png 2x"
+        data-sizes="auto"
+        alt="https://i-blog.csdnimg.cn/direct/ff6ee68ef3b244dab64399299b7f6207.png"
+        title="在这里插入图片描述" /></p>
+<p>当慢指针到达环入口时候，环入口到快指针初始位置的距离是 <code>r </code>,那么快指针需要<code>环周长 - r</code> 的回合追上慢指针和它相遇。因此慢指针从相遇点走到环入口需要走 <code>r </code>步。而此时如果有另一个指针从起始位置出发，和慢指针同步行走，他们一定会在环入口相遇。因为前面我们已经知道了L和r的关系：<code> L = r + nd</code>。
+这表示，慢指针从相遇点走到了环入口的时候，一起同步走的头指针（从其实位置走的指针）也只走了r，头指针此时距离环入口还剩下 <code>L-r = nd</code> 的步数，而剩下的回合中，头指针走到环入口的时候，慢指针恰好会走完n圈后也到达环入口。</p>
+<p>所以最终这两种情况都可以使用一套逻辑进行实现：
+1.快慢一起出发，快一次走两步，慢一次走一步。
+2.快慢相遇时候停下来，头指针和慢指针同步走直到相遇，结果就是环入口。</p>
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-java">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="n">ListNode</span><span class="w"> </span><span class="nf">detectCycle</span><span class="p">(</span><span class="n">ListNode</span><span class="w"> </span><span class="n">head</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">ListNode</span><span class="w"> </span><span class="n">slow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">head</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">ListNode</span><span class="w"> </span><span class="n">fast</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">head</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">while</span><span class="p">(</span><span class="w"> </span><span class="n">fast</span><span class="o">!=</span><span class="kc">null</span><span class="w">  </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">fast</span><span class="p">.</span><span class="na">next</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">){</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">slow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">slow</span><span class="p">.</span><span class="na">next</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">fast</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fast</span><span class="p">.</span><span class="na">next</span><span class="p">.</span><span class="na">next</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c1">//环中相遇</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">slow</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">fast</span><span class="p">){</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="c1">//两个指针同步走</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="n">ListNode</span><span class="w"> </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">head</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">temp</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">slow</span><span class="w"> </span><span class="p">){</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">temp</span><span class="p">.</span><span class="na">next</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="n">slow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">slow</span><span class="p">.</span><span class="na">next</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="c1">//相遇时候就是环入口节点</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="n">temp</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">//不存在环</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span></span></span></code></pre></div></div>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2025-12-20</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8/">环形链表</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/%E7%AE%97%E6%B3%95%E9%A2%98/" class="prev" rel="prev" title="leecode Hot100 学习记录"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>leecode Hot100 学习记录</a>
+            <a href="/posts/%E6%9C%89%E9%99%90%E7%8A%B6%E6%80%81%E6%9C%BA/" class="next" rel="next" title="LCR 138. 有效数字">LCR 138. 有效数字<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.145.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.3.1-DEV"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024 - 2026</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Lennert</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a>
+        </div>
+
+        <div id="fixed-buttons-hidden"><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="/css/_custom.scss"><script src="/lib/autocomplete/autocomplete.min.js"></script><script src="/lib/lunr/lunr.min.js"></script><script src="/lib/lazysizes/lazysizes.min.js"></script><script src="/lib/twemoji/twemoji.min.js"></script><script src="/lib/clipboard/clipboard.min.js"></script><script>window.config={"comment":{},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"lunr"},"twemoji":true};</script><script src="/js/theme.min.js"></script></body>
+</html>

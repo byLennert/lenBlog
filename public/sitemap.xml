@@ -2,18 +2,38 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
-            <loc>http://localhost:1313/categories/</loc><lastmod>2025-09-24T15:50:21&#43;08:00</lastmod><changefreq>always</changefreq><priority>1</priority></url><url>
-            <loc>http://localhost:1313/</loc><lastmod>2025-09-24T15:50:21&#43;08:00</lastmod><changefreq>always</changefreq><priority>1</priority></url><url>
+            <loc>http://localhost:1313/</loc><lastmod>2026-11-03T00:00:00&#43;00:00</lastmod><changefreq>always</changefreq><priority>5.2</priority></url><url>
+            <loc>http://localhost:1313/posts/</loc><lastmod>2026-11-03T00:00:00&#43;00:00</lastmod><changefreq>always</changefreq><priority>5.2</priority></url><url>
+            <loc>http://localhost:1313/categories/</loc><lastmod>2026-01-07T00:00:00&#43;00:00</lastmod><changefreq>always</changefreq><priority>1</priority></url><url>
+            <loc>http://localhost:1313/tags/linux/</loc><lastmod>2026-01-07T00:00:00&#43;00:00</lastmod><changefreq>always</changefreq><priority>1</priority></url><url>
+            <loc>http://localhost:1313/tags/</loc><lastmod>2026-01-07T00:00:00&#43;00:00</lastmod><changefreq>always</changefreq><priority>1</priority></url><url>
+            <loc>http://localhost:1313/posts/%E6%8E%92%E6%9F%A5linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%A0%B9%E7%9B%AE%E5%BD%95%E7%A9%BA%E9%97%B4%E6%BB%A1%E7%9A%84%E9%97%AE%E9%A2%98/</loc><lastmod>2026-01-07T00:00:00&#43;00:00</lastmod><changefreq>always</changefreq><priority>1</priority></url><url>
+            <loc>http://localhost:1313/categories/%E6%95%85%E9%9A%9C%E6%8E%92%E6%9F%A5/</loc><lastmod>2026-01-07T00:00:00&#43;00:00</lastmod><changefreq>always</changefreq><priority>1</priority></url><url>
+            <loc>http://localhost:1313/tags/%E6%B8%85%E7%90%86%E7%A9%BA%E9%97%B4/</loc><lastmod>2026-01-07T00:00:00&#43;00:00</lastmod><changefreq>always</changefreq><priority>1</priority></url><url>
+            <loc>http://localhost:1313/categories/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93/</loc><lastmod>2026-01-02T00:00:00&#43;00:00</lastmod><changefreq>always</changefreq><priority>1</priority></url><url>
+            <loc>http://localhost:1313/tags/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93/</loc><lastmod>2026-01-02T00:00:00&#43;00:00</lastmod><changefreq>always</changefreq><priority>1</priority></url><url>
+            <loc>http://localhost:1313/posts/2025%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93-ds/</loc><lastmod>2026-01-02T00:00:00&#43;00:00</lastmod><changefreq>always</changefreq><priority>1</priority></url><url>
+            <loc>http://localhost:1313/posts/%E6%9C%89%E9%99%90%E7%8A%B6%E6%80%81%E6%9C%BA/</loc><lastmod>2025-12-20T00:00:00&#43;00:00</lastmod><changefreq>always</changefreq><priority>1</priority></url><url>
+            <loc>http://localhost:1313/tags/%E6%9C%89%E9%99%90%E7%8A%B6%E6%80%81%E6%9C%BA/</loc><lastmod>2025-12-20T00:00:00&#43;00:00</lastmod><changefreq>always</changefreq><priority>1</priority></url><url>
+            <loc>http://localhost:1313/tags/%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8/</loc><lastmod>2025-12-20T00:00:00&#43;00:00</lastmod><changefreq>always</changefreq><priority>1</priority></url><url>
+            <loc>http://localhost:1313/posts/%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8%E5%85%A5%E5%8F%A3/</loc><lastmod>2025-12-20T00:00:00&#43;00:00</lastmod><changefreq>always</changefreq><priority>1</priority></url><url>
+            <loc>http://localhost:1313/categories/%E7%AE%97%E6%B3%95%E9%A2%98/</loc><lastmod>2025-12-20T00:00:00&#43;00:00</lastmod><changefreq>always</changefreq><priority>1</priority></url><url>
+            <loc>http://localhost:1313/posts/%E7%AE%97%E6%B3%95%E9%A2%98/</loc><lastmod>2025-12-09T00:00:00&#43;00:00</lastmod><changefreq>always</changefreq><priority>1</priority></url><url>
+            <loc>http://localhost:1313/tags/%E5%89%8D%E7%BC%80%E5%92%8C/</loc><lastmod>2025-12-09T00:00:00&#43;00:00</lastmod><changefreq>always</changefreq><priority>1</priority></url><url>
+            <loc>http://localhost:1313/categories/%E4%B8%AA%E4%BA%BA%E5%A4%87%E5%BF%98/</loc><lastmod>2025-12-07T00:00:00&#43;00:00</lastmod><changefreq>always</changefreq><priority>1</priority></url><url>
+            <loc>http://localhost:1313/posts/%E5%8C%BB%E4%BF%9D%E4%B8%8E%E5%85%AC%E8%B4%B9%E5%8C%BB%E7%96%97/</loc><lastmod>2025-12-07T00:00:00&#43;00:00</lastmod><changefreq>always</changefreq><priority>1</priority></url><url>
+            <loc>http://localhost:1313/tags/%E7%94%9F%E6%B4%BB/</loc><lastmod>2025-12-07T00:00:00&#43;00:00</lastmod><changefreq>always</changefreq><priority>1</priority></url><url>
+            <loc>http://localhost:1313/categories/%E6%8A%80%E6%9C%AF%E8%AE%B0%E5%BD%95/</loc><lastmod>2025-11-03T00:00:00&#43;00:00</lastmod><changefreq>always</changefreq><priority>1</priority></url><url>
+            <loc>http://localhost:1313/posts/%E5%A4%87%E4%BB%BD%E9%85%8D%E7%BD%AE/</loc><lastmod>2025-11-03T00:00:00&#43;00:00</lastmod><changefreq>always</changefreq><priority>1</priority></url><url>
+            <loc>http://localhost:1313/tags/%E9%85%8D%E7%BD%AE/</loc><lastmod>2025-11-03T00:00:00&#43;00:00</lastmod><changefreq>always</changefreq><priority>1</priority></url><url>
+            <loc>http://localhost:1313/posts/wsl%E4%B8%8Bubantu%E8%BF%81%E7%A7%BB/</loc><lastmod>2025-11-01T00:00:00&#43;00:00</lastmod><changefreq>always</changefreq><priority>1</priority></url><url>
+            <loc>http://localhost:1313/posts/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</loc><lastmod>2025-10-29T00:00:00&#43;00:00</lastmod><changefreq>always</changefreq><priority>1</priority></url><url>
             <loc>http://localhost:1313/tags/mongodb/</loc><lastmod>2025-09-24T15:50:21&#43;08:00</lastmod><changefreq>always</changefreq><priority>1</priority></url><url>
             <loc>http://localhost:1313/posts/mongodb%E6%95%85%E9%9A%9C%E6%8E%92%E6%9F%A5/</loc><lastmod>2025-09-24T15:50:21&#43;08:00</lastmod><changefreq>always</changefreq><priority>1</priority></url><url>
-            <loc>http://localhost:1313/posts/</loc><lastmod>2025-09-24T15:50:21&#43;08:00</lastmod><changefreq>always</changefreq><priority>1</priority></url><url>
-            <loc>http://localhost:1313/tags/</loc><lastmod>2025-09-24T15:50:21&#43;08:00</lastmod><changefreq>always</changefreq><priority>1</priority></url><url>
             <loc>http://localhost:1313/tags/%E6%95%85%E9%9A%9C/</loc><lastmod>2025-09-24T15:50:21&#43;08:00</lastmod><changefreq>always</changefreq><priority>1</priority></url><url>
-            <loc>http://localhost:1313/categories/%E6%95%85%E9%9A%9C%E6%8E%92%E6%9F%A5/</loc><lastmod>2025-09-24T15:50:21&#43;08:00</lastmod><changefreq>always</changefreq><priority>1</priority></url><url>
             <loc>http://localhost:1313/tags/hugo/</loc><lastmod>2025-09-23T12:40:52&#43;08:00</lastmod><changefreq>always</changefreq><priority>1</priority></url><url>
             <loc>http://localhost:1313/posts/%E5%8D%9A%E5%AE%A2%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E5%90%88%E9%9B%86/</loc><lastmod>2025-09-23T12:40:52&#43;08:00</lastmod><changefreq>always</changefreq><priority>1</priority></url><url>
             <loc>http://localhost:1313/posts/first_post/</loc><lastmod>2025-09-23T12:40:52&#43;08:00</lastmod><changefreq>always</changefreq><priority>1</priority></url><url>
             <loc>http://localhost:1313/tags/%E5%8D%9A%E5%AE%A2/</loc><lastmod>2025-09-23T12:40:52&#43;08:00</lastmod><changefreq>always</changefreq><priority>1</priority></url><url>
-            <loc>http://localhost:1313/categories/%E6%8A%80%E6%9C%AF%E8%AE%B0%E5%BD%95/</loc><lastmod>2025-09-23T12:40:52&#43;08:00</lastmod><changefreq>always</changefreq><priority>1</priority></url><url>
             <loc>http://localhost:1313/tags/%E6%95%99%E7%A8%8B/</loc><lastmod>2025-09-23T12:40:52&#43;08:00</lastmod><changefreq>always</changefreq><priority>1</priority></url><url>
             <loc>http://localhost:1313/about/</loc><changefreq>always</changefreq><priority>1</priority></url></urlset>

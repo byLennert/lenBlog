@@ -1,0 +1,21 @@
+// 定义宽度变量（SCSS 特性，方便后续统一调整）
+$custom-container-max-width: 1940px;
+$custom-mobile-breakpoint: 968px;
+$custom-content-padding: 2rem;
+$custom-mobile-padding: 1rem;
+
+// 覆盖页面正文容器宽度（嵌套语法更符合 SCSS 规范）
+main {
+  .container {
+    max-width: $custom-container-max-width !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+    padding: 0 $custom-content-padding !important;
+
+    // 响应式适配（SCSS 嵌套媒体查询）
+    @media (max-width: $custom-mobile-breakpoint) {
+      max-width: 100% !important;
+      padding: 0 $custom-mobile-padding !important;
+    }
+  }
+}

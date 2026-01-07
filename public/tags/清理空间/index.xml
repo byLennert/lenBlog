@@ -1,0 +1,19 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>清理空间 - Tag - LenBlog</title>
+        <link>http://localhost:1313/tags/%E6%B8%85%E7%90%86%E7%A9%BA%E9%97%B4/</link>
+        <description>清理空间 - Tag - LenBlog</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>1416679017@qq.com (Lennert)</managingEditor>
+            <webMaster>1416679017@qq.com (Lennert)</webMaster><lastBuildDate>Wed, 07 Jan 2026 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/tags/%E6%B8%85%E7%90%86%E7%A9%BA%E9%97%B4/" rel="self" type="application/rss+xml" /><item>
+    <title>排查linux服务器根目录空间满的问题</title>
+    <link>http://localhost:1313/posts/%E6%8E%92%E6%9F%A5linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%A0%B9%E7%9B%AE%E5%BD%95%E7%A9%BA%E9%97%B4%E6%BB%A1%E7%9A%84%E9%97%AE%E9%A2%98/</link>
+    <pubDate>Wed, 07 Jan 2026 00:00:00 &#43;0000</pubDate>
+    <author>1416679017@qq.com (Lennert)</author>
+    <guid>http://localhost:1313/posts/%E6%8E%92%E6%9F%A5linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%A0%B9%E7%9B%AE%E5%BD%95%E7%A9%BA%E9%97%B4%E6%BB%A1%E7%9A%84%E9%97%AE%E9%A2%98/</guid>
+    <description><![CDATA[<h2 id="清理linux服务器根目录空间">清理linux服务器根目录空间</h2>
+<p>现象：代码无法复制到新文件，创建的新文件无法正常写入内容，大小保存后为0kb。无法上传新的文件。这说明根目录磁盘空间满了。</p>
+<h3 id="排查步骤">排查步骤</h3>
+<p>检查是否确实根目录空间满：</p>]]></description>
+</item>
+</channel>
+</rss>

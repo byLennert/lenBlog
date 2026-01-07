@@ -4,34 +4,145 @@
         <link>http://localhost:1313/</link>
         <description>一个基于 Hugo 的个人博客网站</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>1416679017@qq.com (Lennert)</managingEditor>
-            <webMaster>1416679017@qq.com (Lennert)</webMaster><lastBuildDate>Wed, 24 Sep 2025 15:50:21 &#43;0800</lastBuildDate>
+            <webMaster>1416679017@qq.com (Lennert)</webMaster><lastBuildDate>Tue, 03 Nov 2026 00:00:00 &#43;0000</lastBuildDate>
             <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>排查linux服务器根目录空间满的问题</title>
+    <link>http://localhost:1313/posts/%E6%8E%92%E6%9F%A5linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%A0%B9%E7%9B%AE%E5%BD%95%E7%A9%BA%E9%97%B4%E6%BB%A1%E7%9A%84%E9%97%AE%E9%A2%98/</link>
+    <pubDate>Wed, 07 Jan 2026 00:00:00 &#43;0000</pubDate>
+    <author>1416679017@qq.com (Lennert)</author>
+    <guid>http://localhost:1313/posts/%E6%8E%92%E6%9F%A5linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%A0%B9%E7%9B%AE%E5%BD%95%E7%A9%BA%E9%97%B4%E6%BB%A1%E7%9A%84%E9%97%AE%E9%A2%98/</guid>
+    <description><![CDATA[<h2 id="清理linux服务器根目录空间">清理linux服务器根目录空间</h2>
+<p>现象：代码无法复制到新文件，创建的新文件无法正常写入内容，大小保存后为0kb。无法上传新的文件。这说明根目录磁盘空间满了。</p>
+<h3 id="排查步骤">排查步骤</h3>
+<p>检查是否确实根目录空间满：</p>]]></description>
+</item>
+<item>
+    <title>我的2025：在高压、自省与觉醒中穿行</title>
+    <link>http://localhost:1313/posts/2025%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93-ds/</link>
+    <pubDate>Fri, 02 Jan 2026 00:00:00 &#43;0000</pubDate>
+    <author>1416679017@qq.com (Lennert)</author>
+    <guid>http://localhost:1313/posts/2025%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93-ds/</guid>
+    <description><![CDATA[<blockquote>
+<p>一份写给自己的年度总结，一次与可靠伙伴的坦诚分享</p></blockquote>
+<h2 id="一-迟来的开篇">一、 迟来的开篇</h2>
+<p>今天是<strong>1.2</strong>，本来想<strong>1.1</strong>写的——稍微偷懒一天。</p>
+<hr>
+<h2 id="二-年度回顾一场高投入与低成就感的拉锯战">二、 年度回顾：一场高投入与低成就感的拉锯战</h2>
+<h3 id="1-高压的序曲">1. 高压的序曲</h3>
+<ul>
+<li><strong>2025年的新年</strong>过得<strong>胆战心惊</strong>。刚过年就回学校琢磨项目的方案，被狠狠<strong>压力push</strong>。</li>
+<li>接下来的几个月都是如此的强度。项目在<strong>7-8月份交付</strong>，前面几个月都在进行<strong>双周会议</strong>，<strong>压力拉满</strong>。</li>
+<li>中期检查去了趟<strong>苏州</strong>，体验南方的风景，算是今年一个<strong>额外的小收获</strong>。</li>
+</ul>
+<h3 id="2-消失的暑假与漫长的收尾">2. 消失的暑假与漫长的收尾</h3>
+<ul>
+<li><strong>7-8月的暑假</strong>实际上和没放差不多。放假但依旧<strong>熬夜</strong>，心头压着组会和双周会议。</li>
+<li>没见到朋友，没回老家。时间错开，回家反而不如在学校舒服。</li>
+<li><strong>9月</strong>返校，项目进入完结阶段。终于结束了<strong>长达半年的双周会议</strong>，开始“摸鱼”……直到年底。</li>
+<li>实际上，交付后的几个月仍在<strong>弥补之前未完成的工作</strong>。</li>
+</ul>
+<h3 id="3-核心矛盾的浮现">3. 核心矛盾的浮现</h3>
+<blockquote>
+<p>项目是好项目，但方案是被逼出来的，没什么好效果。数值好看只因场景特殊，<strong>并无实际价值</strong>。</p>]]></description>
+</item>
+<item>
+    <title>LCR 138. 有效数字</title>
+    <link>http://localhost:1313/posts/%E6%9C%89%E9%99%90%E7%8A%B6%E6%80%81%E6%9C%BA/</link>
+    <pubDate>Sat, 20 Dec 2025 00:00:00 &#43;0000</pubDate>
+    <author>1416679017@qq.com (Lennert)</author>
+    <guid>http://localhost:1313/posts/%E6%9C%89%E9%99%90%E7%8A%B6%E6%80%81%E6%9C%BA/</guid>
+    <description><![CDATA[<p>力扣题目：https://leetcode.cn/problems/biao-shi-shu-zhi-de-zi-fu-chuan-lcof/description/?envType=study-plan-v2&amp;envId=coding-interviews</p>]]></description>
+</item>
+<item>
+    <title>环形链表入口</title>
+    <link>http://localhost:1313/posts/%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8%E5%85%A5%E5%8F%A3/</link>
+    <pubDate>Sat, 20 Dec 2025 00:00:00 &#43;0000</pubDate>
+    <author>1416679017@qq.com (Lennert)</author>
+    <guid>http://localhost:1313/posts/%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8%E5%85%A5%E5%8F%A3/</guid>
+    <description><![CDATA[<p><strong>环形链表的快慢指针相遇问题：</strong></p>
+<p>力扣链接：https://leetcode.cn/problems/linked-list-cycle-ii/</p>
+<p>给定一个链表的头节点  <code>head</code> ，返回链表开始入环的第一个节点。 如果链表无环，则返回 <code>null</code>。
+</p>]]></description>
+</item>
+<item>
+    <title>leecode Hot100 学习记录</title>
+    <link>http://localhost:1313/posts/%E7%AE%97%E6%B3%95%E9%A2%98/</link>
+    <pubDate>Tue, 09 Dec 2025 00:00:00 &#43;0000</pubDate>
+    <author>1416679017@qq.com (Lennert)</author>
+    <guid>http://localhost:1313/posts/%E7%AE%97%E6%B3%95%E9%A2%98/</guid>
+    <description><![CDATA[<h3 id="前缀和">前缀和</h3>
+<blockquote>
+<p><strong>不单调数组求任意子数组和</strong></p></blockquote>
+<p>前缀和概念和数列前n项和的概念很像，但是不包含最后一项（左闭右开），模版来自<a href="https://leetcode.cn/problems/range-sum-query-immutable/" target="_blank" rel="noopener noreffer ">303. 区域和检索 - 数组不可变 - 力扣（LeetCode）</a></p>]]></description>
+</item>
+<item>
+    <title>医保与公费医疗</title>
+    <link>http://localhost:1313/posts/%E5%8C%BB%E4%BF%9D%E4%B8%8E%E5%85%AC%E8%B4%B9%E5%8C%BB%E7%96%97/</link>
+    <pubDate>Sun, 07 Dec 2025 00:00:00 &#43;0000</pubDate>
+    <author>1416679017@qq.com (Lennert)</author>
+    <guid>http://localhost:1313/posts/%E5%8C%BB%E4%BF%9D%E4%B8%8E%E5%85%AC%E8%B4%B9%E5%8C%BB%E7%96%97/</guid>
+    <description><![CDATA[<blockquote>
+<p>转自本人飞书知识库 <a href="https://ai.feishu.cn/wiki/X5KCwQ0PliAMtjkyqo2cy0tLn2c?from=from_copylink" target="_blank" rel="noopener noreffer ">https://ai.feishu.cn/wiki/X5KCwQ0PliAMtjkyqo2cy0tLn2c?from=from_copylink</a></p></blockquote>
+<p>虽然在学校呆了五六年了但不经常来医院，对医保和公费医疗有点分不清楚，最近几日和八月一起去医院，对看病流程稍微清晰了点，之前学校也没有主动宣传怎么正确使用大学生基本医保和公费医疗报销，结合最近去苏家屯中心医院看病时候询问的流程，这里进行一些总结。</p>]]></description>
+</item>
+<item>
+    <title>记录一些环境配置</title>
+    <link>http://localhost:1313/posts/%E5%A4%87%E4%BB%BD%E9%85%8D%E7%BD%AE/</link>
+    <pubDate>Mon, 03 Nov 2025 00:00:00 &#43;0000</pubDate>
+    <author>1416679017@qq.com (Lennert)</author>
+    <guid>http://localhost:1313/posts/%E5%A4%87%E4%BB%BD%E9%85%8D%E7%BD%AE/</guid>
+    <description><![CDATA[<h3 id="python312版本环境">Python3.12版本环境</h3>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1">#查看当前的配置</span>
+</span></span><span class="line"><span class="cl">pip config list
+</span></span><span class="line"><span class="cl"><span class="c1"># 配置清华源</span>
+</span></span><span class="line"><span class="cl">pip config <span class="nb">set</span> global.index-url https://pypi.tuna.tsinghua.edu.cn/simple</span></span></code></pre></div></div>]]></description>
+</item>
+<item>
+    <title>WSL迁移Ubuntu到D盘</title>
+    <link>http://localhost:1313/posts/wsl%E4%B8%8Bubantu%E8%BF%81%E7%A7%BB/</link>
+    <pubDate>Sat, 01 Nov 2025 00:00:00 &#43;0000</pubDate>
+    <author>1416679017@qq.com (Lennert)</author>
+    <guid>http://localhost:1313/posts/wsl%E4%B8%8Bubantu%E8%BF%81%E7%A7%BB/</guid>
+    <description><![CDATA[<h2 id="1准备工作"><strong>1.准备工作</strong></h2>
+<p>打开<a href="https://zhida.zhihu.com/search?content_id=226325634&amp;content_type=Article&amp;match_order=1&amp;q=CMD&amp;zhida_source=entity" target="_blank" rel="noopener noreffer ">CMD</a>，输入<code>wsl -l -v</code>查看wsl虚拟机的名称与状态。</p>
+<p>了解到本机的WSL全称为Ubuntu-20.04，以下的操作都将围绕这个来进行。</p>]]></description>
+</item>
+<item>
+    <title>Linux部署python项目</title>
+    <link>http://localhost:1313/posts/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</link>
+    <pubDate>Wed, 29 Oct 2025 00:00:00 &#43;0000</pubDate>
+    <author>1416679017@qq.com (Lennert)</author>
+    <guid>http://localhost:1313/posts/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</guid>
+    <description><![CDATA[<h3 id="使用conda创建python312版本环境">使用conda创建Python3.12版本环境</h3>
+<p>下载python3.12并创建conda环境名称为py312_env</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">conda create -n py312_env <span class="nv">python</span><span class="o">=</span>3.12</span></span></code></pre></div></div>
+<p>激活新环境</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">conda activate py312_env</span></span></code></pre></div></div>
+<p>查看当前环境的python版本（验证）</p>]]></description>
+</item>
+<item>
     <title>MongoDB错误处理【1053】【1067】（意外断开读写中的数据库）</title>
     <link>http://localhost:1313/posts/mongodb%E6%95%85%E9%9A%9C%E6%8E%92%E6%9F%A5/</link>
     <pubDate>Wed, 24 Sep 2025 15:50:21 &#43;0800</pubDate>
     <author>1416679017@qq.com (Lennert)</author>
     <guid>http://localhost:1313/posts/mongodb%E6%95%85%E9%9A%9C%E6%8E%92%E6%9F%A5/</guid>
     <description><![CDATA[<p><strong>摘要：</strong> 本文记录了Windows服务器因意外断电导致MongoDB服务无法启动的解决方案。主要处理了两个错误：1053错误（通过删除并重建MongoDB服务解决）和1067错误（通过修复受损数据文件解决）。重点介绍了使用repair命令修复数据的方法，该过程可能耗时较长（千万级数据需近一天）。最后强调在数据库读写过程中切勿随意断开连接，以免造成数据损坏。解决方案同样适用于Linux系统。</p>]]></description>
-</item>
-<item>
-    <title>创建lenBlog容易出现的小问题解决合集</title>
-    <link>http://localhost:1313/posts/%E5%8D%9A%E5%AE%A2%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E5%90%88%E9%9B%86/</link>
-    <pubDate>Tue, 23 Sep 2025 12:40:52 &#43;0800</pubDate>
-    <author>1416679017@qq.com (Lennert)</author>
-    <guid>http://localhost:1313/posts/%E5%8D%9A%E5%AE%A2%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E5%90%88%E9%9B%86/</guid>
-    <description><![CDATA[<p>在创建这个博客的时候遇到了一些问题，随手进行一次记录。配合第一篇博客使用基本可以顺利完成搭建个人博客方便进行使用。</p>
-<h3 id="添加低成本图床不要用gitee">添加低成本图床（不要用gitee！）</h3>
-<p>鉴于笔记都是使用markdown完成的，而md文档中的图片都是与文件分离的。默认情况下，文章中插入的图片都被存储于本地的C盘中的Typora的数据文件夹中，如果是本地使用的话也可以更改图片的存储路径为某个其他的文件夹（比如笔记文件夹中的img文件夹）。</p>]]></description>
-</item>
-<item>
-    <title>利用Hugo搭建个人博客【极低成本&#43;省运维】</title>
-    <link>http://localhost:1313/posts/first_post/</link>
-    <pubDate>Tue, 23 Sep 2025 12:40:52 &#43;0800</pubDate>
-    <author>1416679017@qq.com (Lennert)</author>
-    <guid>http://localhost:1313/posts/first_post/</guid>
-    <description><![CDATA[<blockquote>
-<p>很久以前本人其实搭建过一个博客，服务器域名等等应有尽有，但是无奈写个笔记还得很很繁琐地进行更新，而且服务器次年续费真的好贵！所以现在搭建的新的博客不需要任何的服务器，而且写完笔记更新到网站也不需要自己操作，直接一键更新！</p>]]></description>
 </item>
 </channel>
 </rss>

@@ -1,0 +1,19 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>前缀和 - Tag - LenBlog</title>
+        <link>http://localhost:1313/tags/%E5%89%8D%E7%BC%80%E5%92%8C/</link>
+        <description>前缀和 - Tag - LenBlog</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>1416679017@qq.com (Lennert)</managingEditor>
+            <webMaster>1416679017@qq.com (Lennert)</webMaster><lastBuildDate>Tue, 09 Dec 2025 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/tags/%E5%89%8D%E7%BC%80%E5%92%8C/" rel="self" type="application/rss+xml" /><item>
+    <title>leecode Hot100 学习记录</title>
+    <link>http://localhost:1313/posts/%E7%AE%97%E6%B3%95%E9%A2%98/</link>
+    <pubDate>Tue, 09 Dec 2025 00:00:00 &#43;0000</pubDate>
+    <author>1416679017@qq.com (Lennert)</author>
+    <guid>http://localhost:1313/posts/%E7%AE%97%E6%B3%95%E9%A2%98/</guid>
+    <description><![CDATA[<h3 id="前缀和">前缀和</h3>
+<blockquote>
+<p><strong>不单调数组求任意子数组和</strong></p></blockquote>
+<p>前缀和概念和数列前n项和的概念很像，但是不包含最后一项（左闭右开），模版来自<a href="https://leetcode.cn/problems/range-sum-query-immutable/" target="_blank" rel="noopener noreffer ">303. 区域和检索 - 数组不可变 - 力扣（LeetCode）</a></p>]]></description>
+</item>
+</channel>
+</rss>
