@@ -1,5 +1,5 @@
 +++
-date = '2026-1-07'
+date = '2026-01-07'
 draft = false
 title = '排查linux服务器根目录空间满的问题'
 
