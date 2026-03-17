@@ -1,5 +1,5 @@
 +++
-date = '2026-3-07'
+date = '2026-03-07'
 draft = false
 title = '常用prompt集合'
 tags = ["prompt","ai"]
