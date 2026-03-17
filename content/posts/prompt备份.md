@@ -1,14 +1,11 @@
 +++
 date = '2026-3-07'
 draft = false
-title = ' 常用的一些prompt'
-
+title = '常用prompt集合'
 tags = ["prompt","ai"]
-
 categories = ["实用工具"]
-
 +++
-
+收集了一些会复用的prompt或者编写建议。
 ## 模拟面试的 Prompt
 
 以下是关于模拟面试的 Prompt 的一些建议：
