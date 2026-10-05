@@ -1,17 +1,8 @@
-+++
-date = '2026-10-06'
-draft = false
-title = ' 0 成本搭建一个「无限」临时邮箱：Cloudflare + FreeEmail 完整实战教程'
+# 0 成本搭建一个「无限」临时邮箱：Cloudflare + FreeEmail 完整实战教程
 
-tags = ["cloudflare","临时邮箱注册"]
-
-categories = ["教程"]
-
-+++
-
-从域名申请到收到第一封邮件，全程免费，全程踩坑复盘。
-
-> 本文基于 [idinging/freemail](https://github.com/idinging/freemail) 项目（Apache-2.0 开源）。
+> 从域名申请到收到第一封邮件，全程免费，全程踩坑复盘。
+>
+> 本文基于 [idinging/freemail](https://github.com/idinging/freemail) 项目（Apache-2.0 开源）
 
 ---
 
@@ -38,13 +29,13 @@ categories = ["教程"]
 
 和网上那些公共临时邮箱（比如 temp-mail 之类）最大的区别是：
 
-|                              | 公共临时邮箱       | 自建（本文方案）                 |
-| ---------------------------- | ------------------ | -------------------------------- |
-| 域名                         | 别人的             | **你自己的**                     |
-| 地址                         | 别人分配           | **想叫什么就叫什么**             |
-| 隐私                         | 邮件在别人服务器上 | 在**你自己的** Cloudflare 账号里 |
-| 能不能查到是谁泄露了你的邮箱 | 不能               | **能**（按网站命名即可）         |
-| 成本                         | 免费               | 免费                             |
+| | 公共临时邮箱 | 自建（本文方案） |
+|---|---|---|
+| 域名 | 别人的 | **你自己的** |
+| 地址 | 别人分配 | **想叫什么就叫什么** |
+| 隐私 | 邮件在别人服务器上 | 在**你自己的** Cloudflare 账号里 |
+| 能不能查到是谁泄露了你的邮箱 | 不能 | **能**（按网站命名即可） |
+| 成本 | 免费 | 免费 |
 
 **典型用途**：
 
@@ -244,13 +235,13 @@ dig NS yourname.dpdns.org
 4. **Token name**：`freemail-deploy`
 5. **Permissions** 点 **+ Add more**，逐条添加：
 
-| 类别    | 资源               | 权限     |
-| ------- | ------------------ | -------- |
-| Account | Workers Scripts    | **Edit** |
-| Account | D1                 | **Edit** |
+| 类别 | 资源 | 权限 |
+|---|---|---|
+| Account | Workers Scripts | **Edit** |
+| Account | D1 | **Edit** |
 | Account | Workers R2 Storage | **Edit** |
 | Account | Workers KV Storage | **Edit** |
-| Account | Account Settings   | **Read** |
+| Account | Account Settings | **Read** |
 
 6. **Account Resources** → `Include` → 选你的账号
 7. **Continue to summary** → **Create Token**
@@ -286,24 +277,24 @@ Please enable R2 through the Cloudflare Dashboard. [code: 10042]
 
 添加以下 5 条（名字必须**完全一致**）：
 
-| Name                    | Value                | 说明                           |
-| ----------------------- | -------------------- | ------------------------------ |
-| `CLOUDFLARE_API_TOKEN`  | 5.2 生成的 Token     | **必填**                       |
-| `CLOUDFLARE_ACCOUNT_ID` | 你的 Account ID      | **必填**                       |
-| `ADMIN_PASSWORD`        | 你自己设的强密码     | **必填**，留空会导致登不进后台 |
-| `JWT_TOKEN`             | 一串长随机字符串     | **必填，务必换掉默认值**       |
-| `MAIL_DOMAIN`           | `yourname.dpdns.org` | **必填**                       |
+| Name | Value | 说明 |
+|---|---|---|
+| `CLOUDFLARE_API_TOKEN` | 5.2 生成的 Token | **必填** |
+| `CLOUDFLARE_ACCOUNT_ID` | 你的 Account ID | **必填** |
+| `ADMIN_PASSWORD` | 你自己设的强密码 | **必填**，留空会导致登不进后台 |
+| `JWT_TOKEN` | 一串长随机字符串 | **必填，务必换掉默认值** |
+| `MAIL_DOMAIN` | `yourname.dpdns.org` | **必填** |
 
 **可选**（不填就用默认值）：
 
-| Name                  | 默认值         | 作用                    |
-| --------------------- | -------------- | ----------------------- |
-| `NAME`                | `mailfree`     | Worker 名称             |
-| `D1_DB_NAME`          | `mail_free_db` | 数据库名                |
-| `R2_BUCKET_NAME`      | `mail-eml`     | 存储桶名                |
-| `ADMIN_NAME`          | `admin`        | 后台用户名              |
-| `SESSION_EXPIRE_DAYS` | `365`          | 会话有效期（建议改 30） |
-| `GUEST_PASSWORD`      | 空             | 留空 = 关闭访客模式     |
+| Name | 默认值 | 作用 |
+|---|---|---|
+| `NAME` | `mailfree` | Worker 名称 |
+| `D1_DB_NAME` | `mail_free_db` | 数据库名 |
+| `R2_BUCKET_NAME` | `mail-eml` | 存储桶名 |
+| `ADMIN_NAME` | `admin` | 后台用户名 |
+| `SESSION_EXPIRE_DAYS` | `365` | 会话有效期（建议改 30） |
+| `GUEST_PASSWORD` | 空 | 留空 = 关闭访客模式 |
 
 #### 生成一个安全的 JWT_TOKEN
 
@@ -338,7 +329,6 @@ on:
 4. 等待 2~3 分钟，看到 ✅ 绿勾
 
 **工作流会自动完成**：
-
 - 创建 D1 数据库（不存在则新建）
 - 创建 R2 存储桶（不存在则新建）
 - 执行建表 SQL
@@ -382,10 +372,10 @@ https://mailfree.你的子域.workers.dev
 3. 点 **Edit**（编辑）
 4. 设置：
 
-| 项目                    | 选择                 |
-| ----------------------- | -------------------- |
-| **Action**（操作）      | **Send to a Worker** |
-| **Destination**（目标） | **`mailfree`**       |
+| 项目 | 选择 |
+|---|---|
+| **Action**（操作） | **Send to a Worker** |
+| **Destination**（目标） | **`mailfree`** |
 
 5. 点 **Save**
 
@@ -417,11 +407,11 @@ https://mailfree.你的子域.workers.dev
 
 ### 7.1 三种创建邮箱的方式
 
-| 方式           | 操作               | 适合                            |
-| -------------- | ------------------ | ------------------------------- |
-| **随机生成**   | 首页点生成         | 一次性用完就扔                  |
+| 方式 | 操作 | 适合 |
+|---|---|---|
+| **随机生成** | 首页点生成 | 一次性用完就扔 |
 | **自定义创建** | 输入你记得住的名字 | **推荐**，如 `github`、`taobao` |
-| **直接不创建** | 拿任意地址去注册   | 最省事，来信自动建              |
+| **直接不创建** | 拿任意地址去注册 | 最省事，来信自动建 |
 
 ### 7.2 推荐用法：按网站起名
 
@@ -448,7 +438,6 @@ https://mailfree.你的子域.workers.dev
 4. 回 FreeEmail 后台 → 进某个邮箱 → 设置 **转发到** → 填已验证的地址
 
 > 也可以配置全局规则（环境变量 `FORWARD_RULES`），支持前缀匹配，`*` 为兜底：
->
 > ```
 > FORWARD_RULES="vip=me@qq.com,*=fallback@qq.com"
 > ```
@@ -495,16 +484,16 @@ curl -H "Authorization: Bearer $TOKEN" -X DELETE \
 
 这一章是我实际搭建过程中踩过的所有坑，按发生顺序排列：
 
-| 报错 / 现象                                                  | 根本原因                                               | 解决办法                                          |
-| ------------------------------------------------------------ | ------------------------------------------------------ | ------------------------------------------------- |
-| `Authentication error [code: 10000]`                         | "Edit Cloudflare Workers" 模板**不含 D1 权限**         | 改用自定义 Token，手动勾上 D1 / R2 / KV 的 Edit   |
-| `Please enable R2 through the Cloudflare Dashboard. [code: 10042]` | 账号还没开通 R2                                        | 去控制台开通 R2（需绑支付方式，免费额度内不收费） |
-| 添加站点报 `Code: 1099`                                      | 域名后缀不在 PSL 里，Cloudflare 不认它是根域           | 换一个已在 PSL 的域名（如 `.dpdns.org`）          |
-| push 代码后工作流不触发                                      | 工作流写的是 `branches: [main]`，但默认分支是 `master` | 手动 **Actions → Run workflow**                   |
-| 收信退信 `550 5.1.1 Address does not exist`                  | MX 通了，但**没配全收规则**                            | 配 Catch-all → Send to a Worker                   |
-| 部署日志里找不到 Worker URL                                  | 工作流主动屏蔽了它                                     | 去 Cloudflare → Workers & Pages 里看              |
-| 邮件日志里看不到记录                                         | Cloudflare 日志**有几分钟延迟**                        | 等几分钟再刷新，别急着下结论                      |
-| 后台发信报「未找到域名对应的发件 API Key」                   | 没配发信渠道                                           | 见[第十一章](#十一进阶绑定自定义域名收发信)       |
+| 报错 / 现象 | 根本原因 | 解决办法 |
+|---|---|---|
+| `Authentication error [code: 10000]` | "Edit Cloudflare Workers" 模板**不含 D1 权限** | 改用自定义 Token，手动勾上 D1 / R2 / KV 的 Edit |
+| `Please enable R2 through the Cloudflare Dashboard. [code: 10042]` | 账号还没开通 R2 | 去控制台开通 R2（需绑支付方式，免费额度内不收费） |
+| 添加站点报 `Code: 1099` | 域名后缀不在 PSL 里，Cloudflare 不认它是根域 | 换一个已在 PSL 的域名（如 `.dpdns.org`） |
+| push 代码后工作流不触发 | 工作流写的是 `branches: [main]`，但默认分支是 `master` | 手动 **Actions → Run workflow** |
+| 收信退信 `550 5.1.1 Address does not exist` | MX 通了，但**没配全收规则** | 配 Catch-all → Send to a Worker |
+| 部署日志里找不到 Worker URL | 工作流主动屏蔽了它 | 去 Cloudflare → Workers & Pages 里看 |
+| 邮件日志里看不到记录 | Cloudflare 日志**有几分钟延迟** | 等几分钟再刷新，别急着下结论 |
+| 后台发信报「未找到域名对应的发件 API Key」 | 没配发信渠道 | 见[第十一章](#十一进阶绑定自定义域名收发信) |
 
 ---
 
@@ -557,14 +546,14 @@ curl -H "Authorization: Bearer dfvhluhdaslufhvdv" https://你的域名/api/mailb
 
 ### 9.3 其他注意事项
 
-| 项                        | 说明                                                         |
-| ------------------------- | ------------------------------------------------------------ |
-| `ADMIN_PASSWORD` 不能留空 | 留空等于**禁用管理员口令登录**，你自己会进不去               |
-| 关闭访客模式              | `GUEST_PASSWORD` 留空即可（访客模式走的是假数据，但没必要开） |
-| 会话时长                  | `SESSION_EXPIRE_DAYS` 默认 365 天，建议改 30                 |
-| 收信无配额                | 任意地址来信都会自动建邮箱，**垃圾邮件会堆积**，建议定期清理 |
-| 删邮箱不删文件            | `DELETE /api/mailboxes` **只删数据库记录，不删 R2 原文**。想彻底清理：先 `DELETE /api/emails` 清空邮件，再删邮箱 |
-| 没有自动过期              | `expires_at` 字段写了但从不生效，没有任何清理任务，建议每几个月手动清一次 |
+| 项 | 说明 |
+|---|---|
+| `ADMIN_PASSWORD` 不能留空 | 留空等于**禁用管理员口令登录**，你自己会进不去 |
+| 关闭访客模式 | `GUEST_PASSWORD` 留空即可（访客模式走的是假数据，但没必要开） |
+| 会话时长 | `SESSION_EXPIRE_DAYS` 默认 365 天，建议改 30 |
+| 收信无配额 | 任意地址来信都会自动建邮箱，**垃圾邮件会堆积**，建议定期清理 |
+| 删邮箱不删文件 | `DELETE /api/mailboxes` **只删数据库记录，不删 R2 原文**。想彻底清理：先 `DELETE /api/emails` 清空邮件，再删邮箱 |
+| 没有自动过期 | `expires_at` 字段写了但从不生效，没有任何清理任务，建议每几个月手动清一次 |
 
 ---
 
@@ -572,34 +561,34 @@ curl -H "Authorization: Bearer dfvhluhdaslufhvdv" https://你的域名/api/mailb
 
 ### 10.1 实际花费
 
-| 项目                     | 花费                                 |
-| ------------------------ | ------------------------------------ |
-| Cloudflare Workers       | **0 元**（免费额度内）               |
-| Cloudflare D1            | **0 元**                             |
-| Cloudflare R2            | **0 元**（需绑卡，免费额度内不扣费） |
-| Cloudflare Email Routing | **0 元**（收信免费）                 |
-| 域名                     | 自有域名 ¥0 额外成本 / 免费域名 ¥0   |
-| GitHub Actions           | **0 元**（公开仓库免费）             |
-| **合计**                 | **0 元**                             |
+| 项目 | 花费 |
+|---|---|
+| Cloudflare Workers | **0 元**（免费额度内） |
+| Cloudflare D1 | **0 元** |
+| Cloudflare R2 | **0 元**（需绑卡，免费额度内不扣费） |
+| Cloudflare Email Routing | **0 元**（收信免费） |
+| 域名 | 自有域名 ¥0 额外成本 / 免费域名 ¥0 |
+| GitHub Actions | **0 元**（公开仓库免费） |
+| **合计** | **0 元** |
 
 ### 10.2 免费额度参考
 
-| 服务          | 免费额度                                  | 备注                      |
-| ------------- | ----------------------------------------- | ------------------------- |
-| Workers       | 10 万请求/天                              | 个人用绰绰有余            |
-| D1            | 5 GB 存储、500 万行读/天、10 万行写/天    | —                         |
-| R2            | 10 GB 存储、100 万次写/月、1000 万次读/月 | —                         |
-| Email Routing | 单封最大 25 MiB                           | 每域名最多 200 条路由规则 |
+| 服务 | 免费额度 | 备注 |
+|---|---|---|
+| Workers | 10 万请求/天 | 个人用绰绰有余 |
+| D1 | 5 GB 存储、500 万行读/天、10 万行写/天 | — |
+| R2 | 10 GB 存储、100 万次写/月、1000 万次读/月 | — |
+| Email Routing | 单封最大 25 MiB | 每域名最多 200 条路由规则 |
 
 ### 10.3 发信要额外花钱吗？
 
 **不用。** 但需要配第三方渠道（默认没配，所以只能收不能发）。
 
-| 渠道                               | 免费额度                                   | 付费            |
-| ---------------------------------- | ------------------------------------------ | --------------- |
-| [Resend](https://resend.com)       | 3,000 封/月（**每天限 100 封**），1 个域名 | $20/月 = 5 万封 |
-| [SendFlare](https://sendflare.com) | 3,000 封/月，2 个域名                      | 有付费版        |
-| Cyberpersons                       | CyberPanel 的邮件投递服务                  | —               |
+| 渠道 | 免费额度 | 付费 |
+|---|---|---|
+| [Resend](https://resend.com) | 3,000 封/月（**每天限 100 封**），1 个域名 | $20/月 = 5 万封 |
+| [SendFlare](https://sendflare.com) | 3,000 封/月，2 个域名 | 有付费版 |
+| Cyberpersons | CyberPanel 的邮件投递服务 | — |
 
 > ⚠️ **但是——如果你用的是免费域名后缀（如 `.dpdns.org`），发信送达率会很差。**
 > 这类公共后缀在 Gmail / Outlook 眼里信誉天然偏低，邮件容易进垃圾箱甚至被直接拒收。这是免费域名的固有问题，配置解决不了。
@@ -664,15 +653,15 @@ curl -H "Authorization: Bearer dfvhluhdaslufhvdv" https://你的域名/api/mailb
 
 ## 附录：常用链接
 
-| 用途                      | 链接                                                         |
-| ------------------------- | ------------------------------------------------------------ |
-| FreeEmail 项目            | https://github.com/idinging/freemail                         |
-| Cloudflare 控制台         | https://dash.cloudflare.com                                  |
-| Cloudflare API Token 管理 | https://dash.cloudflare.com/profile/api-tokens               |
-| DigitalPlat 免费域名      | https://dash.domain.digitalplat.org/                         |
-| DNS 传播检查              | https://www.whatsmydns.net/                                  |
-| Resend（发信，可选）      | https://resend.com                                           |
-| 官方部署文档              | https://github.com/idinging/freemail/blob/master/docs/action-deployment.md |
+| 用途 | 链接 |
+|---|---|
+| FreeEmail 项目 | https://github.com/idinging/freemail |
+| Cloudflare 控制台 | https://dash.cloudflare.com |
+| Cloudflare API Token 管理 | https://dash.cloudflare.com/profile/api-tokens |
+| DigitalPlat 免费域名 | https://dash.domain.digitalplat.org/ |
+| DNS 传播检查 | https://www.whatsmydns.net/ |
+| Resend（发信，可选） | https://resend.com |
+| 官方部署文档 | https://github.com/idinging/freemail/blob/master/docs/action-deployment.md |
 
 ---
 
