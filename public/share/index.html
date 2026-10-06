@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Claude免费版批量注册教程</title>
+<style>
+  :root {
+    --bg:#f7f7f5; --card:#fff; --ink:#1f2328; --muted:#6b7280; --line:#e5e7eb;
+    --accent:#c2410c; --accent-soft:#fff7ed; --code-bg:#f3f4f6;
+  }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink);
+    font:16px/1.85 -apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei","PingFang SC","Hiragino Sans GB",sans-serif;
+    -webkit-font-smoothing:antialiased; }
+  .wrap { max-width:1200px; margin:0 auto; padding:32px 20px 96px; display:grid;
+           grid-template-columns:236px minmax(0,1fr); gap:36px; }
+  .toc { position:sticky; top:32px; align-self:start; max-height:calc(100vh - 64px);
+          overflow:auto; font-size:13.5px; line-height:1.7; }
+  .toc h4 { margin:0 0 10px; font-size:12px; letter-spacing:.12em; color:var(--muted); text-transform:uppercase; }
+  .toc a { display:block; color:#4b5563; text-decoration:none; padding:3px 8px;
+            border-left:2px solid transparent; border-radius:0 6px 6px 0; }
+  .toc a:hover { color:var(--accent); background:var(--accent-soft); border-left-color:var(--accent); }
+  .toc a.lvl3 { padding-left:20px; font-size:13px; color:#6b7280; }
+  main { background:var(--card); border:1px solid var(--line); border-radius:14px;
+          padding:40px 44px 56px; box-shadow:0 1px 2px rgba(16,24,40,.04); min-width:0; }
+  h1 { font-size:28px; line-height:1.4; margin:0 0 8px; letter-spacing:-.01em; }
+  h2 { font-size:22px; margin:46px 0 14px; padding-top:22px; border-top:1px solid var(--line); }
+  h2:first-of-type { border-top:0; padding-top:0; }
+  h3 { font-size:17.5px; margin:30px 0 10px; color:#111827; }
+  h4 { font-size:16px; margin:22px 0 8px; }
+  p { margin:12px 0; }
+  strong { color:#111827; }
+  a { color:var(--accent); }
+  hr { border:0; border-top:1px dashed var(--line); margin:34px 0; }
+  blockquote { margin:16px 0; padding:12px 18px; background:var(--accent-soft);
+                border-left:4px solid var(--accent); border-radius:0 10px 10px 0; color:#4b3a2c; }
+  code { background:var(--code-bg); padding:.12em .42em; border-radius:5px;
+          font:13.5px/1.5 "Cascadia Mono",Consolas,"Courier New",monospace; }
+  pre { background:#0f172a; color:#e5e7eb; padding:16px 18px; border-radius:10px;
+         overflow:auto; font-size:13.5px; line-height:1.7; }
+  pre code { background:none; color:inherit; padding:0; }
+  ul,ol { margin:12px 0; padding-left:26px; }
+  li { margin:6px 0; }
+  figure { margin:20px 0; }
+  figure img { max-width:100%; height:auto; border:1px solid var(--line); border-radius:10px;
+                box-shadow:0 2px 10px rgba(16,24,40,.08); display:block; }
+  figcaption { font-size:13px; color:var(--muted); margin-top:8px; text-align:center; }
+  .tw { overflow-x:auto; margin:18px 0; }
+  table { border-collapse:collapse; width:100%; font-size:14.5px; }
+  th,td { border:1px solid var(--line); padding:9px 12px; text-align:left; vertical-align:top; }
+  th { background:#f9fafb; font-weight:600; white-space:nowrap; }
+  tbody tr:nth-child(even) { background:#fcfcfb; }
+  .todo { background:#fef08a; color:#7c2d12; padding:1px 6px; border-radius:5px;
+           font-weight:600; white-space:nowrap; }
+  /* 一键复制 */
+  .codewrap { position:relative; margin:16px 0; }
+  .codewrap pre { margin:0; padding-right:74px; }
+  .copy { background:rgba(255,255,255,.12); color:#e5e7eb; border:1px solid rgba(255,255,255,.25);
+           border-radius:7px; padding:3px 11px; font-size:12.5px; cursor:pointer; line-height:1.6;
+           font-family:inherit; transition:.15s; }
+  .copy:hover { background:rgba(255,255,255,.24); }
+  .copy.done { background:#15803d; border-color:#15803d; color:#fff; }
+  .codewrap > .copy { position:absolute; top:10px; right:10px; }
+  .copyrow { display:flex; align-items:center; gap:10px; margin:14px 0; flex-wrap:wrap; }
+  .copyrow .copytext { margin:0; padding:8px 13px; background:var(--code-bg); border:1px solid var(--line);
+                        border-radius:8px; font:13.5px/1.6 "Cascadia Mono",Consolas,"Courier New",monospace;
+                        word-break:break-all; flex:1 1 320px; min-width:0; }
+  .copy.side { background:#fff; color:#9a3412; border-color:#fdba74; flex:none; }
+  .copy.side:hover { background:var(--accent-soft); }
+  .copychip { display:inline-flex; align-items:center; gap:6px; background:var(--code-bg);
+               border:1px solid var(--line); border-radius:8px; padding:1px 6px 1px 9px; margin:0 2px;
+               font:13.5px/1.7 "Cascadia Mono",Consolas,"Courier New",monospace; word-break:break-all; }
+  .copychip .copy.side { padding:1px 8px; font-size:12px; }
+  /* 警示块 :::warn */
+  .admon { margin:18px 0; padding:14px 18px; border-radius:0 10px 10px 0; border-left:4px solid; }
+  .admon p { margin:8px 0; }
+  .admon p:first-child { margin-top:0; }
+  .admon p:last-child { margin-bottom:0; }
+  .admon ul, .admon ol { margin:8px 0; }
+  .admon.warn { background:#fef2f2; border-color:#dc2626; color:#7f1d1d; }
+  .admon.note { background:#eff6ff; border-color:#2563eb; color:#1e3a5f; }
+  .admon.tip { background:#f0fdf4; border-color:#16a34a; color:#14532d; }
+  @media (max-width:960px) {
+    .wrap { grid-template-columns:1fr; padding:18px 12px 60px; }
+    .toc { position:static; max-height:none; border:1px solid var(--line);
+            border-radius:12px; padding:14px 16px; background:var(--card); }
+    main { padding:24px 18px 40px; }
+    h1 { font-size:22px; } h2 { font-size:19px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav class="toc"><h4>目录</h4><a class="lvl2" href="#一-先说效果和耗时">一、先说效果和耗时</a>
+<a class="lvl2" href="#二-需要用到的东西">二、需要用到的东西</a>
+<a class="lvl3" href="#1-adspower-指纹浏览器-需要自己下载">1. AdsPower 指纹浏览器（需要自己下载）</a>
+<a class="lvl3" href="#2-一条家宽节点-我提供订阅链接">2. 一条家宽节点（我提供订阅链接）</a>
+<a class="lvl3" href="#3-临时邮箱系统-我已经搭好了-直接用">3. 临时邮箱系统（我已经搭好了，直接用）</a>
+<a class="lvl2" href="#三-为什么要这么做">三、为什么要这么做</a>
+<a class="lvl2" href="#四-具体怎么做">四、具体怎么做</a>
+<a class="lvl3" href="#第-1-步-装好-adspower-注册登录">第 1 步：装好 AdsPower，注册登录</a>
+<a class="lvl3" href="#第-2-步-新建一个环境">第 2 步：新建一个环境</a>
+<a class="lvl3" href="#第-3-步-打开环境-先测一下节点">第 3 步：打开环境，先测一下节点</a>
+<a class="lvl3" href="#第-4-步-生成一个临时邮箱">第 4 步：生成一个临时邮箱</a>
+<a class="lvl3" href="#第-5-步-去注册-claude">第 5 步：去注册 Claude</a>
+<a class="lvl3" href="#第-6-步-确认一下成了">第 6 步：确认一下成了</a>
+<a class="lvl3" href="#想再注册一个">想再注册一个？</a>
+<a class="lvl2" href="#五-账号到手之后-两件事必须做">五、账号到手之后，两件事必须做</a>
+<a class="lvl2" href="#六-用这类账号的几个原则">六、用这类账号的几个原则</a>
+<a class="lvl2" href="#七-原理-想深究再看">七、原理（想深究再看）</a>
+<a class="lvl3" href="#邮箱为什么能-无限-三句话">邮箱为什么能&quot;无限&quot;？三句话</a>
+<a class="lvl3" href="#为什么非得是家宽节点">为什么非得是家宽节点</a>
+<a class="lvl3" href="#指纹浏览器是干嘛的">指纹浏览器是干嘛的</a>
+<a class="lvl2" href="#附录a-想自己搭一套临时邮箱系统">附录A：想自己搭一套临时邮箱系统</a>
+<a class="lvl2" href="#附录b-常见问题">附录B：常见问题</a></nav>
+  <main>
+<h1 id="claude-免费版批量注册-两分钟搞定一个号">Claude 免费版批量注册：两分钟搞定一个号</h1>
+<p>说实话，Claude 这订阅是真的不太敢长期用——贵是一方面，主要是一旦被封，钱就白花了。所以我干脆走了免费版这条路：<strong>多注册几个号轮着用，封了就再注册一个，反正一个号两分钟的事。</strong></p>
+<p>下面就是我自己跑通的一整套流程，你照着做就行。</p>
+<hr>
+<h2 id="一-先说效果和耗时">一、先说效果和耗时</h2>
+<p>一个号，从零到能聊天，<strong>大概两分钟</strong>。全程不花钱、不用绑卡。</p>
+<div class="tw"><table><thead><tr>
+<th>步骤</th>
+<th>做什么</th>
+<th>耗时</th>
+</tr></thead><tbody>
+<tr><td>1</td><td>打开 AdsPower 里的一个环境（用的是家宽节点）</td><td>几秒</td></tr>
+<tr><td>2</td><td>生成一个临时邮箱，复制到 Claude 注册页</td><td>20 秒</td></tr>
+<tr><td>3</td><td>点邮件里的验证按钮，注册完成</td><td>1 分钟</td></tr>
+</tbody></table></div>
+<p>想再注册一个？<strong>不用换节点、不用新建环境，只要重新生成一个邮箱就行。</strong> 这才是它能做到"批量"和"两分钟"的原因。</p>
+<p><strong>折腾完就是这个样子</strong>——一个能正常聊天的免费版账号：</p>
+<figure><img src="images/claude-register-success.png" alt="Claude 注册成功界面：显示免费计划、已进入对话页、模型为 Sonnet 5.5，这就是折腾完的效果" loading="lazy"><figcaption>Claude 注册成功界面：显示免费计划、已进入对话页、模型为 Sonnet 5.5，这就是折腾完的效果</figcaption></figure>
+<hr>
+<h2 id="二-需要用到的东西">二、需要用到的东西</h2>
+<p>一共三样，我这边该搭的都搭好了，你只需要装第一个。</p>
+<h3 id="1-adspower-指纹浏览器-需要自己下载">1. AdsPower 指纹浏览器（需要自己下载）</h3>
+<p>👉 下载地址（这个必须装）：<span class="copychip"><span data-copy>https://www.adspower.net/</span><button class="copy side" type="button" data-copy aria-label="复制">复制</button></span></p>
+<p>装好、注册个账号登录就行，免费版完全够用。</p>
+<p>这东西说白了就是<strong>给每个账号一个独立的浏览器身份</strong>，免得几个号之间互相串味。</p>
+<h3 id="2-一条家宽节点-我提供订阅链接">2. 一条家宽节点（我提供订阅链接）</h3>
+<p>用你平时那个梯子客户端（Clash 之类）导入下面这条订阅，里面挑<strong>家宽</strong>节点用：</p>
+<div class="codewrap"><button class="copy" type="button" data-copy aria-label="复制">复制</button><pre><code>https://f-sub.xn--8pr28c250c1edz9a.xn--fiqs8s/api/v1/client/subscribe?token=1aadcd94210971d38308b2c61954ffed</code></pre></div>
+<p><strong>挑节点的标准就一条</strong>：是家宽（住宅宽带），并且能通过 IP 检测。日本、美国都行，我自己用的是日本家宽，下面截图也是日本的。</p>
+<blockquote>⚠️ 这条链接等于我账号的凭证，别往外发。万一流出去了，我去后台重置一下订阅地址就失效了。</blockquote>
+<h3 id="3-临时邮箱系统-我已经搭好了-直接用">3. 临时邮箱系统（我已经搭好了，直接用）</h3>
+<p>👉 入口：<span class="copychip"><span data-copy>https://mailfree.1416679017.workers.dev/</span><button class="copy side" type="button" data-copy aria-label="复制">复制</button></span></p>
+<p>👉 账号 <span class="copychip"><span data-copy>user</span><button class="copy side" type="button" data-copy aria-label="复制">复制</button></span> ／ 密码 <span class="copychip"><span data-copy>123456</span><button class="copy side" type="button" data-copy aria-label="复制">复制</button></span></p>
+<p>邮箱地址<strong>不用提前创建</strong>，打开页面点一下就能生成一个，随手编一个也行。</p>
+<hr>
+<h2 id="三-为什么要这么做">三、为什么要这么做</h2>
+<p><strong>1. 免费版封了不心疼。</strong></p>
+<p>花钱订阅的号被封，损失是真金白银；免费号被封，重新注册一个就是了。</p>
+<p><strong>2. 免费版额度少，但可以靠数量补。</strong></p>
+<p>额度是滚动的，聊满一段时间会提示等待，过会儿自动恢复。那就多注册几个轮着用——A 用完了换 B，B 用完了换 C。</p>
+<p><strong>3. 免费版能用的模型其实不差。</strong></p>
+<p>免费额度内可以直接选 Sonnet 档（我注册时是 4.6，现在能选到 Sonnet 5.5，界面上显示「十四行诗 5.5」）。日常聊天、写东西、读代码改 bug 都够用。更强的 Opus 档要 Pro，免费版用不到——所以想摸更高档位，还是得靠多号轮换。</p>
+<p><strong>4. 关键是"环境干净 + 节点干净"。</strong></p>
+<p>这就是为什么要用指纹浏览器 + 家宽节点：普通浏览器多开，Cookie 和指纹是共用的，几个号必然互相关联；机房 IP 在风控眼里基本等于"批量工具在跑"。这两样齐了，注册才能顺。</p>
+<blockquote>更细的原理我放在最后面了，不影响你上手，想深究再看。</blockquote>
+<hr>
+<h2 id="四-具体怎么做">四、具体怎么做</h2>
+<h3 id="第-1-步-装好-adspower-注册登录">第 1 步：装好 AdsPower，注册登录</h3>
+<p>下载 https://www.adspower.net/ ，装好之后注册账号、登录，进到「环境管理」页面。</p>
+<h3 id="第-2-步-新建一个环境">第 2 步：新建一个环境</h3>
+<p>点新建环境：</p>
+<ul><li><strong>名称</strong>：随便起，比如 <code>claude</code></li><li><strong>代理配置</strong>：类型选 <strong>HTTP</strong>，主机 <code>127.0.0.1</code>，端口填你 Clash 的本地混合端口（也可以用下面的"本机 IP"方案，二选一）</li></ul>
+<div class="tw"><table><thead><tr>
+<th>客户端</th>
+<th>常见本地端口</th>
+</tr></thead><tbody>
+<tr><td>Clash Verge / Verge Rev</td><td><strong>7897</strong></td></tr>
+<tr><td>Clash for Windows</td><td>7890</td></tr>
+<tr><td>其他</td><td>看客户端界面上写的"混合端口"</td></tr>
+</tbody></table></div>
+<ul><li>填完点 <strong>检查代理</strong>（用上面"本机 IP"方案的话没有这一步），确认出口 IP 是家宽（普通宽带 / ISP），不是机房</li><li>保存</li></ul>
+<blockquote>💡 为什么绕一圈用本机 Clash 中转：指纹浏览器只要一个稳定的出口 IP。节点在 Clash 里换，浏览器这边端口不用动。代价就是<strong>注册的时候 Clash 得一直开着</strong>。</blockquote>
+<div class="admon note"><p><strong>更省事的一种做法：不填代理，直接用本机 IP。</strong></p><p>让梯子开<strong>虚拟网卡模式（TUN）+ 全局模式</strong>，也就是所有流量都走本机那块虚拟网卡。这样梯子一连上，浏览器自然也跟着走梯子的流量了。</p><p>然后 AdsPower 建环境的时候，代理那里直接选 <strong>不使用代理 / 本机 IP</strong> 就行，不用填端口，也不用一个个环境去配代理。</p><p>具体怎么开这个模式，各家的梯子客户端位置不太一样，<strong>直接问一下 AI 就行</strong>（跟它说清楚你用的是哪个客户端），很简单。</p></div>
+<p>新建好的环境在列表里长这样，名称、IP、最近使用时间都能看到：</p>
+<figure><img src="images/adspower-env-list.png" alt="AdsPower 环境管理：一个名为 claude 的环境，IP 显示节点所在地区" loading="lazy"><figcaption>AdsPower 环境管理：一个名为 claude 的环境，IP 显示节点所在地区</figcaption></figure>
+<h3 id="第-3-步-打开环境-先测一下节点">第 3 步：打开环境，先测一下节点</h3>
+<p><strong>注意是在 AdsPower 打开的那个窗口里测</strong>，不是你本机的浏览器：</p>
+<p>👉 打开 https://iplark.com/</p>
+<p>看到这几个就合格了：</p>
+<ul><li><strong>IP 评分 100 / 100</strong></li><li>有 <strong><code>原生 IP</code></strong> 标签，国家/地区跟节点对得上</li><li><strong>使用场景 = 普通宽带</strong>（不是机房 / IDC / 托管）</li></ul>
+<p>我实测日本家宽的结果，你可以直接照着比对：</p>
+<figure><img src="images/iplark-JP-SoftBank-homebroadband.png" alt="iplark 实测：日本 SoftBank 家宽、原生 IP (JP)、使用场景普通宽带、IP 评分 100/100" loading="lazy"><figcaption>iplark 实测：日本 SoftBank 家宽、原生 IP (JP)、使用场景普通宽带、IP 评分 100/100</figcaption></figure>
+<p>不合格就换一个家宽节点重测，别硬着头皮往下注册。</p>
+<blockquote>⚠️ 页面上 <code>代理检测</code> 显示「已开启 VPN/代理」是正常的，你本来就在用梯子。真正看的是<strong>原生 IP + 普通宽带 + 评分 100</strong> 这三项。</blockquote>
+<h3 id="第-4-步-生成一个临时邮箱">第 4 步：生成一个临时邮箱</h3>
+<p>打开 https://mailfree.1416679017.workers.dev/ ，用 <code>user</code> / <code>123456</code> 登录。</p>
+<p><strong>操作就三下</strong>：</p>
+<ol><li>点 <strong>随机生成</strong> → 拿到一个地址</li><li>点 <strong>复制邮箱</strong> → 等下填进 Claude</li><li>注册完回来点 <strong>刷新邮件</strong> → 会收到 Claude 的验证邮件</li></ol>
+<p>界面长这样，左边「历史邮箱」会记着你生成过的所有地址：</p>
+<figure><img src="images/temp-mail-ui.png" alt="临时邮箱使用界面：随机生成 @lennert.bid 地址，复制去注册，收到信后刷新查看" loading="lazy"><figcaption>临时邮箱使用界面：随机生成 @lennert.bid 地址，复制去注册，收到信后刷新查看</figcaption></figure>
+<h3 id="第-5-步-去注册-claude">第 5 步：去注册 Claude</h3>
+<p>回到 AdsPower 那个环境窗口：</p>
+<ol><li>打开 <code>claude.ai</code>，点注册</li><li>邮箱填刚才复制的那个，设个密码</li><li>回邮箱页面点 <strong>刷新邮件</strong>，点邮件里那个 <strong>注册 / 跳转按钮</strong> 完成验证（⚠️ 这一步有个坑，见下面）</li><li>姓名、生日随便填，不用真实</li><li>进到对话页，能发消息就成了</li></ol>
+<div class="admon warn"><p><strong>⚠️ 注意：别去复制邮件里的验证码数字，它不可靠。</strong></p><p>我自己试出来，那个验证码是<strong>重复的</strong>（多次注册拿到的号码一样），拿它去填大概率过不去。<strong>邮件里 Claude 会给一个「注册 / 跳转」的按钮，用那个才稳。</strong></p><p>两种做法都行：</p><ul><li><strong>直接点那个按钮</strong>（想在新窗口开，就右键 → 在新标签页打开）</li><li><strong>复制按钮的链接</strong>，粘到浏览器新标签页里打开</li></ul><p>怎么都行，就是<strong>别复制验证码本身</strong>。</p></div>
+<p>不想开网页看邮件的话，可以用命令行等信、看信：</p>
+<div class="codewrap"><button class="copy" type="button" data-copy aria-label="复制">复制</button><pre><code>.\fm.bat claude01 -Wait -Full</code></pre></div>
+<p>它会自动等到新邮件并把内容打出来，你从里面拿<strong>按钮链接</strong>就行（同样别用那个验证码数字）。</p>
+<h3 id="第-6-步-确认一下成了">第 6 步：确认一下成了</h3>
+<p>结果就是<strong>开头那张图</strong>的样子。几个容易犯嘀咕的地方，我提前说一下：</p>
+<ul><li>顶部写着 <strong>免费计划 · 升级</strong> → 说明确实是免费版，没绑任何支付方式</li><li>模型那里是 <strong>十四行诗 5.5</strong>（Sonnet 5.5）→ 免费额度里能直接用的档</li><li><strong>界面是日文</strong> → 因为节点在日本，正常现象，不是号有问题</li></ul>
+<p>界面想变中文，直接在对话里说一句「请用中文回答我」就行。</p>
+<h3 id="想再注册一个">想再注册一个？</h3>
+<p><strong>只换邮箱，别的都不动：</strong></p>
+<div class="codewrap"><button class="copy" type="button" data-copy aria-label="复制">复制</button><pre><code>回邮箱页面点「随机生成」→ 拿到新地址 → 复制 → 填进 Claude 注册页</code></pre></div>
+<p>环境还是那个环境，节点还是那条节点，所以下一个号还是两分钟。</p>
+<blockquote>📌 建议每个号用<strong>不同的邮箱地址</strong>，以后好区分是哪个号在收信。 📌 别在短时间内用一条节点连着一口气注册太多，慢一点更稳。</blockquote>
+<hr>
+<h2 id="五-账号到手之后-两件事必须做">五、账号到手之后，两件事必须做</h2>
+<p><strong>一、把号和密码记下来</strong></p>
+<p>尤其是 <strong>AdsPower 的环境要备份导出</strong>——登录态是存在环境里的，<strong>环境丢了，光有密码也可能登不上去</strong>。顺手把邮箱、密码、注册日期记个表，心里有数。</p>
+<p><strong>二、重要的东西当天就存到本地</strong></p>
+<p>Claude 的对话只存在它服务器上，号一没就全归零。所以它给你写的代码、方案、文章，<strong>当场复制到自己电脑或者仓库里</strong>，别指望留在对话记录里。另外别往里贴内网地址、密钥、真实客户数据这些东西。</p>
+<p><strong>另外</strong>：<code>xxx@lennert.bid</code> 是临时邮箱，别拿它注册别的重要账号，也别用它当找回邮箱。</p>
+<hr>
+<h2 id="六-用这类账号的几个原则">六、用这类账号的几个原则</h2>
+<p>目前没听说这种号被封，但<strong>以后会不会查、会不会封，我不敢保证</strong>。所以就当<strong>"日抛型"</strong>的用：没了再注册，两分钟的事。</p>
+<ul><li><strong>额度用完就换号</strong>，别硬试，反复试探限流最容易被盯上</li><li><strong>别绑支付方式</strong>，保持纯免费，封了不心疼</li><li><strong>别搞异常操作</strong>，刷接口、批量请求这些别碰</li><li><strong>重要的东西随时备份</strong></li></ul>
+<hr>
+<h2 id="七-原理-想深究再看">七、原理（想深究再看）</h2>
+<h3 id="邮箱为什么能-无限-三句话">邮箱为什么能"无限"？三句话</h3>
+<ol><li><strong>域名交给 Cloudflare 托管</strong>，域名的 DNS 和邮件入口都归它管</li><li><strong>Cloudflare 的「全收」规则把所有来信都收下</strong>，任何前缀的地址都接，不用提前建邮箱</li><li><strong>Worker 把邮件接住、转存到我的临时邮件系统</strong>，你打开网页就能看验证码</li></ol>
+<p>所以"无限"说的是<strong>地址数量无限</strong>：<code>claude07@lennert.bid</code> 这种随手编一个就能收信。一个域名等于无穷多个邮箱。</p>
+<p>完整的搭建流程我放<a href="https://lenblog.top/posts/freeemail-%E6%97%A0%E9%99%90%E4%B8%B4%E6%97%B6%E9%82%AE%E7%AE%B1%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/" target="_blank" rel="noopener">这篇博客</a>了。</p>
+<h3 id="为什么非得是家宽节点">为什么非得是家宽节点</h3>
+<p>风控看的不是你在哪，而是<strong>你这个出口 IP 像不像真人在用</strong>：</p>
+<div class="tw"><table><thead><tr>
+<th>节点类型</th>
+<th>风控眼里</th>
+<th>结论</th>
+</tr></thead><tbody>
+<tr><td>机房 IP（IDC / 云服务器）</td><td>一看就是批量工具在跑</td><td>❌</td></tr>
+<tr><td><strong>家宽（住宅宽带）IP</strong></td><td>像个普通家庭在上网</td><td>✅</td></tr>
+</tbody></table></div>
+<p>要求就一条：<strong>是家宽，并且过得了 IP 检测</strong>。日本美国都行。</p>
+<h3 id="指纹浏览器是干嘛的">指纹浏览器是干嘛的</h3>
+<p>普通浏览器多开，Cookie、指纹、时区、语言全是共用的，几个号必然互相牵连。AdsPower 是给每个环境一套独立身份：</p>
+<ul><li><strong>独立指纹</strong>：一套独立的浏览器指纹</li><li><strong>独立代理</strong>：环境绑死一个出口节点，登录时和注册时一致</li><li><strong>独立存储</strong>：Cookie 和登录态互不污染</li></ul>
+<p>配上干净的家宽节点，就凑齐了注册需要的两个硬条件：</p>
+<div class="codewrap"><button class="copy" type="button" data-copy aria-label="复制">复制</button><pre><code>干净的浏览器环境（AdsPower） + 干净的家宽节点 + 无限邮箱（临时邮件系统）
+                        ↓
+                  可以批量注册 Claude 号</code></pre></div>
+<p><strong>补一句</strong>：一个环境和一条节点可以服务好几个号——注册下一个号只换邮箱，别的都不用动。</p>
+<hr>
+<h2 id="附录a-想自己搭一套临时邮箱系统">附录A：想自己搭一套临时邮箱系统</h2>
+<p>这部分我<strong>不在这儿重复写了</strong>，完整流程我发在博客上了，自建的话照着走就行：</p>
+<p>👉 <span class="copychip"><span data-copy>https://lenblog.top/posts/freeemail-%E6%97%A0%E9%99%90%E4%B8%B4%E6%97%B6%E9%82%AE%E7%AE%B1%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/</span><button class="copy side" type="button" data-copy aria-label="复制">复制</button></span></p>
+<p>搭建本身的原理不复杂，就是三句话：<strong>域名交给 Cloudflare 托管 → 用「全收」规则把所有来信都收下 → Worker 把邮件接住、转存到你的临时邮件系统</strong>。你不用提前建邮箱，随手编一个地址就能收信。</p>
+<blockquote>⚠️ <strong>这里有个坑，一定要先说</strong>：<strong>域名一定要自己买一个顶级域名，别用免费的二级域名</strong>（比如 dpdns.org、us.kg 这类）。这种免费后缀用的人太多，<strong>Cloudflare 会直接给你风控</strong>——添加站点或者接 Email Routing 的时候就被拦下来，白折腾。自己买个 .bid 之类的顶级域名，一年也就十几块，买完就能一路走通。</blockquote>
+<blockquote>💡 <strong>不想搭也没关系</strong>：用我搭好的那套就行（见上面「需要用到的东西」第 3 条），入口和账号密码都给了。</blockquote>
+<hr>
+<h2 id="附录b-常见问题">附录B：常见问题</h2>
+<p><strong>Q：注册时邮件里的验证码填不进去？</strong></p>
+<p>别填验证码，那个码是重复的、不可靠。点邮件里 Claude 给的 <strong>注册 / 跳转按钮</strong>，或者<strong>复制这个按钮的链接</strong>、粘到新标签页里打开，这样就没问题。</p>
+<p><strong>Q：AdsPower 里代理一定要配吗？</strong></p>
+<p>不一定，两种都行：① 在环境里填 <code>127.0.0.1</code> + Clash 的本地端口；② <strong>梯子开虚拟网卡（TUN）+ 全局模式，环境直接选"本机 IP / 不使用代理"</strong>。第二种更省事，不用逐个环境配代理。</p>
+<p><strong>Q：一定要用日本节点吗？</strong></p>
+<p>不用，家宽就行，日本美国都能用，关键是过得了 IP 检测（原生 IP、普通宽带、评分满分）。</p>
+<p><strong>Q：安装包在哪下？</strong></p>
+<p><span class="copychip"><span data-copy>https://www.adspower.net/</span><button class="copy side" type="button" data-copy aria-label="复制">复制</button></span> ，这个必须装。</p>
+<p><strong>Q：界面变成日文/英文了，有问题吗？</strong></p>
+<p>没问题，是节点地区导致的。对话里说一句「请用中文回答我」就行。</p>
+<p><strong>Q：额度用完了怎么办？</strong></p>
+<p>等它滚动恢复，或者直接换个号继续——这就是为什么要多注册几个。</p>
+<p><strong>Q：号会被封吗？</strong></p>
+<p>目前没听说，但我不能保证。所以当"日抛型"用，重要数据随时备份，封了就再注册一个。</p>
+<p><strong>Q：注册多个号要换节点、换环境吗？</strong></p>
+<p>不用。<strong>只换邮箱</strong>：回邮箱页面点「随机生成」，拿新地址去注册就行，环境和节点都不用动。</p>
+<p><strong>Q：我自己也想搭一套临时邮箱系统，怎么搞？</strong></p>
+<p>看<a href="https://lenblog.top/posts/freeemail-%E6%97%A0%E9%99%90%E4%B8%B4%E6%97%B6%E9%82%AE%E7%AE%B1%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/" target="_blank" rel="noopener">这篇博客</a>，流程我都写在里面了。<strong>记得自己买个顶级域名，别用免费二级域名</strong>，不然会被 Cloudflare 风控。</p>
+<hr>
+<p><em>本文基于自己实际搭建和注册的过程整理，里面的报错都是真遇到的。邮件系统项目版本：V5.3.1。</em></p>
+  </main>
+</div>
+<script>
+(function () {
+  function grab(btn) {
+    var box = btn.closest('.codewrap');
+    if (box) { var c = box.querySelector('code'); if (c) return c.innerText; }
+    var row = btn.closest('.copyrow');
+    if (row) { var t = row.querySelector('.copytext'); if (t) return t.innerText; }
+    var host = btn.parentElement;
+    if (host) { var p = host.querySelector('[data-copy]'); if (p && p !== btn) return p.innerText; }
+    return '';
+  }
+  function flash(btn, ok) {
+    if (!btn.dataset.label) btn.dataset.label = btn.textContent;
+    btn.textContent = ok ? '已复制 ✓' : '复制失败';
+    btn.classList.toggle('done', ok);
+    clearTimeout(btn._t);
+    btn._t = setTimeout(function () { btn.textContent = btn.dataset.label; btn.classList.remove('done'); }, 1500);
+  }
+  function legacy(text, btn) {
+    var ta = document.createElement('textarea');
+    ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+    document.body.appendChild(ta); ta.select();
+    var ok = false;
+    try { ok = document.execCommand('copy'); } catch (e) { ok = false; }
+    document.body.removeChild(ta);
+    flash(btn, ok);
+  }
+  document.addEventListener('click', function (e) {
+    var btn = e.target.closest('[data-copy]');
+    if (!btn) return;
+    var text = grab(btn);
+    if (!text) return;
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(function () { flash(btn, true); },
+                                               function () { legacy(text, btn); });
+    } else {
+      legacy(text, btn);
+    }
+  });
+})();
+</script>
+</body>
+</html>
